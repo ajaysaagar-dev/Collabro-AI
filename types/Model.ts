@@ -1,0 +1,16 @@
+export type ModelChoice =
+  | 'poolside-laguna'
+  | 'z-ai-glm'
+  | 'minimax-m3'
+  | 'nemotron-3'
+  | 'mixtral-8x7b'
+  | 'llama-3.1-8b'
+  | 'llama-3.1-70b'
+  | 'gemma-2-2b'
+  | 'llama-3.2-1b'
+  | 'llama-3.2-3b'
+  | 'llama-3.3-70b'
+  | 'phi-4-mini'
+  | 'Llama'
+  | 'Mixtral'
+  | 'Phi';
