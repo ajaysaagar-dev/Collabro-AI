@@ -2,7 +2,7 @@
 // POST /api/project - Creates a new project and starts the pipeline
 
 import { createProject } from '@/memory/store';
-import { runPipeline } from '@/core/orchestrator/orchestrator';
+import { runPipeline } from '@/orchestrator/ocollabro';
 
 export async function POST(request: Request) {
   try {

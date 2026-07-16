@@ -131,6 +131,11 @@ export default function ProgressPanel({
                       }`}
                     >
                       {meta?.label || phase.phase}
+                      {phase.iterations && phase.iterations > 1 ? (
+                        <span className="ml-2 text-[10px] text-muted font-mono opacity-80">
+                          (Cycle {phase.iterations})
+                        </span>
+                      ) : null}
                     </span>
                     <span
                       className={`text-[10px] px-2 py-0.5 rounded-full font-mono shrink-0 ${statusStyle.badge}`}

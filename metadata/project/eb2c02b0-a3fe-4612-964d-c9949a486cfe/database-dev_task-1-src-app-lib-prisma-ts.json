@@ -1,0 +1,5 @@
+{
+  "path": "src/app/lib/prisma.ts",
+  "agent": "database-dev",
+  "size": 103
+}

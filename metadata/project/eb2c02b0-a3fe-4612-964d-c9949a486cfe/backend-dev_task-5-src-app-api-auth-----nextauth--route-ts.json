@@ -1,0 +1,5 @@
+{
+  "path": "src/app/api/auth/[...nextauth]/route.ts",
+  "agent": "backend-dev",
+  "size": 1702
+}

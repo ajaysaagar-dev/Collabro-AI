@@ -1,0 +1,533 @@
+{
+  "timestamp": 1784223249974,
+  "projectId": "eb2c02b0-a3fe-4612-964d-c9949a486cfe",
+  "stages": [
+    {
+      "name": "Project Structure",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Project Structure",
+          "file": ".gitignore",
+          "message": "Missing critical project file: .gitignore",
+          "severity": "error",
+          "recommendation": "Generate default .gitignore using project templates."
+        }
+      ],
+      "warnings": [],
+      "duration": 1
+    },
+    {
+      "name": "Dependencies",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 1423
+    },
+    {
+      "name": "Environment",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        {
+          "stage": "Environment",
+          "file": ".env",
+          "message": "No .env file found. Ensure environment variables are not required for build.",
+          "severity": "warning",
+          "recommendation": "Create a default .env file."
+        }
+      ],
+      "duration": 1
+    },
+    {
+      "name": "Type Check",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Type Check",
+          "file": "src/app/api/auth/[...nextauth]/route.ts",
+          "line": 1,
+          "column": 22,
+          "message": "TS2307: Cannot find module 'next-auth' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/api/auth/[...nextauth]/route.ts",
+          "line": 2,
+          "column": 33,
+          "message": "TS2307: Cannot find module 'next-auth/providers/credentials' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/api/auth/[...nextauth]/route.ts",
+          "line": 3,
+          "column": 33,
+          "message": "TS2307: Cannot find module 'next-auth' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/api/auth/[...nextauth]/route.ts",
+          "line": 4,
+          "column": 30,
+          "message": "TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/api/auth/[...nextauth]/route.ts",
+          "line": 5,
+          "column": 20,
+          "message": "TS2307: Cannot find module 'bcryptjs' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/layout.tsx",
+          "line": 1,
+          "column": 10,
+          "message": "TS2614: Module '\"./providers/SessionProvider\"' has no exported member 'SessionProvider'. Did you mean to use 'import SessionProvider from \"./providers/SessionProvider\"' instead?",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/auth.ts",
+          "line": 1,
+          "column": 22,
+          "message": "TS2307: Cannot find module 'next-auth' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/auth.ts",
+          "line": 2,
+          "column": 33,
+          "message": "TS2307: Cannot find module 'next-auth/providers/credentials' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/auth.ts",
+          "line": 3,
+          "column": 31,
+          "message": "TS2307: Cannot find module '@auth/prisma-adapter' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/auth.ts",
+          "line": 4,
+          "column": 24,
+          "message": "TS2307: Cannot find module '@/lib/prisma' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/auth.ts",
+          "line": 5,
+          "column": 25,
+          "message": "TS2307: Cannot find module 'bcryptjs' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/auth.ts",
+          "line": 6,
+          "column": 49,
+          "message": "TS2307: Cannot find module 'next-auth' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/auth.ts",
+          "line": 7,
+          "column": 26,
+          "message": "TS2307: Cannot find module 'next-auth/jwt' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/auth.ts",
+          "line": 9,
+          "column": 16,
+          "message": "TS2664: Invalid module name in augmentation, module 'next-auth' cannot be found.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/prisma.ts",
+          "line": 1,
+          "column": 30,
+          "message": "TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/prisma.ts",
+          "line": 2,
+          "column": 31,
+          "message": "TS2307: Cannot find module '@auth/prisma-adapter' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/prisma.ts",
+          "line": 3,
+          "column": 40,
+          "message": "TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/prisma.ts",
+          "line": 4,
+          "column": 56,
+          "message": "TS2307: Cannot find module '@auth/prisma-adapter' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/validation.ts",
+          "line": 23,
+          "column": 46,
+          "message": "TS2339: Property 'errors' does not exist on type 'ZodError<unknown>'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/validation.ts",
+          "line": 35,
+          "column": 46,
+          "message": "TS2339: Property 'errors' does not exist on type 'ZodError<unknown>'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/validation.ts",
+          "line": 95,
+          "column": 46,
+          "message": "TS2339: Property 'errors' does not exist on type 'ZodError<unknown>'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/validation.ts",
+          "line": 131,
+          "column": 46,
+          "message": "TS2339: Property 'errors' does not exist on type 'ZodError<unknown>'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/validation.ts",
+          "line": 145,
+          "column": 46,
+          "message": "TS2339: Property 'errors' does not exist on type 'ZodError<unknown>'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/validation.ts",
+          "line": 163,
+          "column": 46,
+          "message": "TS2339: Property 'errors' does not exist on type 'ZodError<unknown>'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/validation.ts",
+          "line": 222,
+          "column": 46,
+          "message": "TS2339: Property 'errors' does not exist on type 'ZodError<unknown>'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/lib/validation.ts",
+          "line": 237,
+          "column": 46,
+          "message": "TS2339: Property 'errors' does not exist on type 'ZodError<unknown>'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/page.tsx",
+          "line": 2,
+          "column": 10,
+          "message": "TS2614: Module '\"./hooks/useCalculator\"' has no exported member 'useCalculator'. Did you mean to use 'import useCalculator from \"./hooks/useCalculator\"' instead?",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "src/app/page.tsx",
+          "line": 21,
+          "column": 23,
+          "message": "TS2322: Type '{ onCalculate: any; }' is not assignable to type 'IntrinsicAttributes & CalculatorFormProps'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        }
+      ],
+      "warnings": [],
+      "duration": 1228
+    },
+    {
+      "name": "Lint",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Lint",
+          "file": "eslintConfig",
+          "message": "Eslint verification failed: \nnpm notice run project-eb2c02b0-a3fe-4612-964d-c9949a486cfe@0.1.0 lint\nnpm notice run next lint\n`next lint` is deprecated and will be removed in Next.js 16.\nFor new projects, use create-next-app to choose your preferred linter.\nFor existing projects, migrate to the ESLint CLI:\nnpx @next/codemod@canary next-lint-to-eslint-cli .\n\n ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.\n We detected multiple lockfiles and selected the directory of /home/ajaysaagar/Documents/Pro",
+          "severity": "error",
+          "recommendation": "Fix linting issues using eslint --fix or manually adjusting rules."
+        }
+      ],
+      "warnings": [],
+      "duration": 2123
+    },
+    {
+      "name": "Formatting",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0
+    },
+    {
+      "name": "Static Analysis",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 8
+    },
+    {
+      "name": "Build",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Build",
+          "file": "Build bundle",
+          "message": "NextJS build execution failed:    ▲ Next.js 15.5.20 (Turbopack)\n\n   Creating an optimized production build ...\n\nnpm notice run project-eb2c02b0-a3fe-4612-964d-c9949a486cfe@0.1.0 build\nnpm notice run next build\n ⚠ You are using a non-standard \"NODE_ENV\" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env\n ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.\n We detected multiple lockfiles and selected the directory of /home/ajaysaagar/Documents/Projects/Collabro-AI/collabro-ai/package-lock.json as the root directory.\n To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.\n   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.\n Detected additional lockfiles: \n   * /home/ajaysaagar/Documents/Projects/Collabro-AI/collabro-ai/workspace/project/e",
+          "severity": "error",
+          "recommendation": "Check build error log, fix SSR hydration mismatches, client component imports, or syntax errors."
+        }
+      ],
+      "warnings": [],
+      "duration": 1764
+    },
+    {
+      "name": "Dev Server",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Dev Server",
+          "file": "next dev",
+          "message": "Dev server startup failed: Error: listen EADDRINUSE: address already in use :::3000\n    at <unknown> (Error: listen EADDRINUSE: address already in use :::3000)\n    at new Promise (<anonymous>) {\n  code: 'EADDRINUSE',\n  errno: -98,\n  syscall: 'listen',\n  address: '::',\n  port: 3000\n}\n",
+          "severity": "error",
+          "recommendation": "Check for port conflicts or startup runtime errors."
+        }
+      ],
+      "warnings": [],
+      "duration": 402
+    },
+    {
+      "name": "Runtime Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0
+    },
+    {
+      "name": "Browser Automation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Browser Automation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Route Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Route Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "API Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "API Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Database Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Database Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "File Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "File Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Unit Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Unit Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Integration Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 1,
+      "output": "Integration Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "E2E Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "E2E Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Security Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Security Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Performance Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Performance Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Accessibility Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Accessibility Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "SEO Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "SEO Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Docker Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Docker Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "CI Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "CI Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Git Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Git Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "AI Architecture Review",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "AI Architecture Review completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Production Readiness",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Production Readiness completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Observability",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Observability completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Deployment Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Deployment Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Autonomous Self-Healing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 1,
+      "output": "Autonomous Self-Healing completed with code 0. Validated successfully."
+    }
+  ],
+  "totalErrors": 32,
+  "totalWarnings": 1,
+  "passed": false,
+  "duration": 6952
+}

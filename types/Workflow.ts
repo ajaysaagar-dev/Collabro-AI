@@ -18,4 +18,5 @@ export interface PhaseProgress {
   progress: number; // 0-100
   startedAt?: number;
   completedAt?: number;
+  iterations?: number;
 }
