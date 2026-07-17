@@ -1,2 +1,0 @@
-# Tests
-Global testing setup.
