@@ -1,0 +1,17 @@
+{
+  "id": "dashboard-with-auth",
+  "name": "Dashboard with Auth Layout",
+  "tags": ["all"],
+  "stack": "nextjs-app-router",
+  "requestText": "Create a dashboard app with Next.js App Router. Include a login page, a protected dashboard page with sample metrics cards, and a sidebar navigation. Use Tailwind CSS with dark mode support.",
+  "acceptanceCriteria": [
+    { "type": "file_exists", "value": "apps/web/src/app/login/page.tsx" },
+    { "type": "file_exists", "value": "apps/web/src/app/dashboard/page.tsx" },
+    { "type": "page_loads", "value": "/" },
+    { "type": "page_loads", "value": "/login" },
+    { "type": "selector_exists", "value": "form" },
+    { "type": "no_console_errors" },
+    { "type": "axe_zero_critical" },
+    { "type": "lighthouse_perf_gte", "value": 70 }
+  ]
+}

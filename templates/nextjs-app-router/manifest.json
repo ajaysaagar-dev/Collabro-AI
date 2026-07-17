@@ -1,0 +1,49 @@
+{
+  "key": "nextjs-app-router",
+  "displayName": "Next.js 16 App Router",
+  "description": "Next.js 16 with App Router, React 19, Tailwind v4, TypeScript",
+  "installCmd": "npm install --prefer-offline --no-audit",
+  "startCmd": "npm run dev",
+  "buildCmd": "npm run build",
+  "port": 3000,
+  "healthCheckPath": "/",
+  "routeMap": [
+    "/",
+    "/about",
+    "/dashboard",
+    "/api/health"
+  ],
+  "criticalSelectors": [
+    "nav",
+    "main",
+    "footer",
+    "h1"
+  ],
+  "lighthouseThresholds": {
+    "performance": 70,
+    "accessibility": 90,
+    "bestPractices": 85,
+    "seo": 80
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "tailwindcss": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest"
+  },
+  "postcssConfig": {
+    "plugins": {
+      "@tailwindcss/postcss": {}
+    }
+  },
+  "nextConfig": {
+    "turbopack": {}
+  }
+}

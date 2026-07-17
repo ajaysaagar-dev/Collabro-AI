@@ -1,0 +1,164 @@
+{
+  "fileSpecs": [
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma schema for defining database schema with Task model",
+      "requirements": [
+        "Database schema definition for Task entity",
+        "Prisma model declarations with fields",
+        "Database migration configuration"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "domains/Task.ts",
+      "purpose": "Task entity for storing task data with TypeScript type definitions",
+      "requirements": [
+        "Task data schema with TypeScript interface",
+        "Task data validation logic",
+        "Type-safe task operations"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "configs/next.config.js",
+      "purpose": "Next.js configuration file for defining application settings",
+      "requirements": [
+        "Application settings configuration",
+        "Environment variables setup",
+        "Build configuration options"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "critical",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "scripts/build.sh",
+      "purpose": "Build script for compiling and deploying application",
+      "requirements": [
+        "Build process automation",
+        "Deployment script execution",
+        "Build verification steps"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "services/auth.ts",
+      "purpose": "Authentication service for handling user authentication with NextAuth",
+      "requirements": [
+        "User authentication implementation",
+        "User session management",
+        "JWT token handling"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "integrations/stripe.ts",
+      "purpose": "Stripe integration for handling payment processing",
+      "requirements": [
+        "Payment processing functionality",
+        "Payment gateway integration",
+        "Stripe API client setup"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/task/application/TaskService.ts",
+      "purpose": "Task service for fetching and updating tasks with business logic",
+      "requirements": [
+        "Task data fetching from database",
+        "Task data updating operations",
+        "Business logic for task management"
+      ],
+      "dependencies": [
+        "domains/Task.ts"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/task/presentation/TaskList.tsx",
+      "purpose": "Task list view component for displaying tasks",
+      "requirements": [
+        "Task list data fetching integration",
+        "Task list rendering with React",
+        "Task item display components"
+      ],
+      "dependencies": [
+        "modules/task/application/TaskService.ts"
+      ],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page for Next.js application displaying task list",
+      "requirements": [
+        "Next.js page component implementation",
+        "Task list view integration",
+        "Page-level data fetching"
+      ],
+      "dependencies": [
+        "modules/task/presentation/TaskList.tsx"
+      ],
+      "estimatedTokens": 300,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout for Next.js application with responsive design",
+      "requirements": [
+        "Next.js layout component structure",
+        "Responsive design implementation",
+        "Global styling setup"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    }
+  ],
+  "dependencyGraph": {
+    "data/prisma/schema.prisma": [],
+    "domains/Task.ts": [],
+    "configs/next.config.js": [],
+    "scripts/build.sh": [],
+    "services/auth.ts": [],
+    "integrations/stripe.ts": [],
+    "modules/task/application/TaskService.ts": [
+      "domains/Task.ts"
+    ],
+    "modules/task/presentation/TaskList.tsx": [
+      "modules/task/application/TaskService.ts"
+    ],
+    "apps/web/src/app/page.tsx": [
+      "modules/task/presentation/TaskList.tsx"
+    ],
+    "apps/web/src/app/layout.tsx": [
+      "apps/web/src/app/page.tsx"
+    ]
+  },
+  "totalFiles": 10,
+  "estimatedTotalTokens": 3300
+}

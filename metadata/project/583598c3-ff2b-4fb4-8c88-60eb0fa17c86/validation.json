@@ -1,0 +1,1175 @@
+{
+  "timestamp": 1784280775864,
+  "projectId": "583598c3-ff2b-4fb4-8c88-60eb0fa17c86",
+  "stages": [
+    {
+      "name": "Import Resolution",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Import Resolution",
+          "file": "__tests__/app.test.tsx",
+          "message": "Path depth error: \"../application/todo-service\" in file __tests__/app.test.tsx was not found, but a file with that name exists at \"modules/todo/application/todo-service.ts\".",
+          "severity": "error",
+          "recommendation": "Fix relative path depth segment count (../ vs ../../) to match \"modules/todo/application/todo-service.ts\"."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "__tests__/app.test.tsx",
+          "message": "Broken local import: \"../prisma/model/Todo\" in file __tests__/app.test.tsx. Target resolved path \"prisma/model/Todo\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../prisma/model/Todo\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "__tests__/app.test.tsx",
+          "message": "Broken local import: \"../prisma/model/User\" in file __tests__/app.test.tsx. Target resolved path \"prisma/model/User\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../prisma/model/User\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "__tests__/app.test.tsx",
+          "message": "Path depth error: \"../infrastructure/todo-repository\" in file __tests__/app.test.tsx was not found, but a file with that name exists at \"modules/todo/infrastructure/todo-repository.ts\".",
+          "severity": "error",
+          "recommendation": "Fix relative path depth segment count (../ vs ../../) to match \"modules/todo/infrastructure/todo-repository.ts\"."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "__tests__/app.test.tsx",
+          "message": "Broken local import: \"../prisma/model/Todo\" in file __tests__/app.test.tsx. Target resolved path \"prisma/model/Todo\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../prisma/model/Todo\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "__tests__/app.test.tsx",
+          "message": "Broken local import: \"../prisma/model/User\" in file __tests__/app.test.tsx. Target resolved path \"prisma/model/User\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../prisma/model/User\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "__tests__/app.test.tsx",
+          "message": "Path depth error: \"../domains/notification\" in file __tests__/app.test.tsx was not found, but a file with that name exists at \"services/notification.ts\".",
+          "severity": "error",
+          "recommendation": "Fix relative path depth segment count (../ vs ../../) to match \"services/notification.ts\"."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "__tests__/playwright-e2e.test.ts",
+          "message": "Path depth error: \"./utils\" in file __tests__/playwright-e2e.test.ts was not found, but a file with that name exists at \"shared/utils.ts\".",
+          "severity": "error",
+          "recommendation": "Fix relative path depth segment count (../ vs ../../) to match \"shared/utils.ts\"."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "apps/web/src/app/layout.tsx",
+          "message": "Broken local import: \"./globals.css\" in file apps/web/src/app/layout.tsx. Target resolved path \"apps/web/src/app/globals.css\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"./globals.css\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken local import: \"../app/loading\" in file apps/web/src/app/page.tsx. Target resolved path \"apps/web/src/app/loading\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../app/loading\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken local import: \"../app/error\" in file apps/web/src/app/page.tsx. Target resolved path \"apps/web/src/app/error\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../app/error\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken local import: \"../app/not-found\" in file apps/web/src/app/page.tsx. Target resolved path \"apps/web/src/app/not-found\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../app/not-found\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken local import: \"../domains/user/hooks\" in file apps/web/src/app/page.tsx. Target resolved path \"apps/web/src/domains/user/hooks\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../domains/user/hooks\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken local import: \"../domains/task/hooks\" in file apps/web/src/app/page.tsx. Target resolved path \"apps/web/src/domains/task/hooks\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../domains/task/hooks\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Path depth error: \"../services/auth\" in file apps/web/src/app/page.tsx was not found, but a file with that name exists at \"domains/auth.ts\".",
+          "severity": "error",
+          "recommendation": "Fix relative path depth segment count (../ vs ../../) to match \"domains/auth.ts\"."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken local import: \"../services/task\" in file apps/web/src/app/page.tsx. Target resolved path \"apps/web/src/services/task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../services/task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/application/todo-service.ts",
+          "message": "Path depth error: \"../domains/user\" in file modules/todo/application/todo-service.ts was not found, but a file with that name exists at \"domains/user.ts\".",
+          "severity": "error",
+          "recommendation": "Fix relative path depth segment count (../ vs ../../) to match \"domains/user.ts\"."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/application/todo-service.ts",
+          "message": "Broken local import: \"../domains/task\" in file modules/todo/application/todo-service.ts. Target resolved path \"modules/todo/domains/task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../domains/task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/application/todo-service.ts",
+          "message": "Broken local import: \"../domains/enums/task-status\" in file modules/todo/application/todo-service.ts. Target resolved path \"modules/todo/domains/enums/task-status\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../domains/enums/task-status\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/application/todo-service.ts",
+          "message": "Broken local import: \"../domains/enums/task-priority\" in file modules/todo/application/todo-service.ts. Target resolved path \"modules/todo/domains/enums/task-priority\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../domains/enums/task-priority\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../types/task\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/types/task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../types/task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Path depth error: \"../types/user\" in file modules/todo/presentation/todo-page.tsx was not found, but a file with that name exists at \"domains/user.ts\".",
+          "severity": "error",
+          "recommendation": "Fix relative path depth segment count (../ vs ../../) to match \"domains/user.ts\"."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-user\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-user\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-user\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-tasks\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-tasks\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-tasks\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-create-task\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-create-task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-create-task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-edit-task\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-edit-task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-edit-task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-delete-task\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-delete-task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-delete-task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-complete-task\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-complete-task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-complete-task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-assign-task\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-assign-task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-assign-task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-prioritize-task\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-prioritize-task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-prioritize-task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-due-date-task\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-due-date-task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-due-date-task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-reminder-task\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-reminder-task\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-reminder-task\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-search-tasks\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-search-tasks\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-search-tasks\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-filter-tasks\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-filter-tasks\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-filter-tasks\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-sort-tasks\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-sort-tasks\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-sort-tasks\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-drag-and-drop-tasks\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-drag-and-drop-tasks\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-drag-and-drop-tasks\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-realtime-updates\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-realtime-updates\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-realtime-updates\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-collaboration-features\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-collaboration-features\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-collaboration-features\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken local import: \"../hooks/use-permissions-and-access-control\" in file modules/todo/presentation/todo-page.tsx. Target resolved path \"modules/todo/hooks/use-permissions-and-access-control\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../hooks/use-permissions-and-access-control\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "tests/unit/todo-service.spec.ts",
+          "message": "Path depth error: \"../application/todo-service\" in file tests/unit/todo-service.spec.ts was not found, but a file with that name exists at \"modules/todo/application/todo-service.ts\".",
+          "severity": "error",
+          "recommendation": "Fix relative path depth segment count (../ vs ../../) to match \"modules/todo/application/todo-service.ts\"."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "tests/unit/todo-service.spec.ts",
+          "message": "Broken local import: \"../models/todo\" in file tests/unit/todo-service.spec.ts. Target resolved path \"tests/models/todo\" does not exist.",
+          "severity": "error",
+          "recommendation": "Ensure the file \"../models/todo\" is actually created or remove the import."
+        },
+        {
+          "stage": "Import Resolution",
+          "file": "tests/unit/todo-service.spec.ts",
+          "message": "Path depth error: \"../models/user\" in file tests/unit/todo-service.spec.ts was not found, but a file with that name exists at \"domains/user.ts\".",
+          "severity": "error",
+          "recommendation": "Fix relative path depth segment count (../ vs ../../) to match \"domains/user.ts\"."
+        }
+      ],
+      "warnings": [],
+      "duration": 1
+    },
+    {
+      "name": "Project Structure",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 34
+    },
+    {
+      "name": "Dependencies",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 1309
+    },
+    {
+      "name": "Environment",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        {
+          "stage": "Environment",
+          "file": ".env",
+          "message": "No .env file found. Ensure environment variables are not required for build.",
+          "severity": "warning",
+          "recommendation": "Create a default .env file."
+        }
+      ],
+      "duration": 1
+    },
+    {
+      "name": "Type Check",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 1,
+          "column": 28,
+          "message": "TS2307: Cannot find module 'next-auth/react' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 2,
+          "column": 10,
+          "message": "TS2614: Module '\"next/app\"' has no exported member 'useClient'. Did you mean to use 'import useClient from \"next/app\"' instead?",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 3,
+          "column": 10,
+          "message": "TS2614: Module '\"../app/layout\"' has no exported member 'Layout'. Did you mean to use 'import Layout from \"../app/layout\"' instead?",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 4,
+          "column": 25,
+          "message": "TS2307: Cannot find module '../app/loading' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 5,
+          "column": 31,
+          "message": "TS2307: Cannot find module '../app/error' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 6,
+          "column": 26,
+          "message": "TS2307: Cannot find module '../app/not-found' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 7,
+          "column": 25,
+          "message": "TS2307: Cannot find module '../domains/user/hooks' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 8,
+          "column": 25,
+          "message": "TS2307: Cannot find module '../domains/task/hooks' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 9,
+          "column": 41,
+          "message": "TS2307: Cannot find module '../services/auth' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 10,
+          "column": 26,
+          "message": "TS2307: Cannot find module '../services/task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 51,
+          "column": 21,
+          "message": "TS7006: Parameter 'task' implicitly has an 'any' type.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/application/todo-service.ts",
+          "line": 3,
+          "column": 30,
+          "message": "TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/application/todo-service.ts",
+          "line": 4,
+          "column": 22,
+          "message": "TS2307: Cannot find module '../domains/user' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/application/todo-service.ts",
+          "line": 5,
+          "column": 22,
+          "message": "TS2307: Cannot find module '../domains/task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/application/todo-service.ts",
+          "line": 6,
+          "column": 28,
+          "message": "TS2307: Cannot find module '../domains/enums/task-status' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/application/todo-service.ts",
+          "line": 7,
+          "column": 30,
+          "message": "TS2307: Cannot find module '../domains/enums/task-priority' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 1,
+          "column": 30,
+          "message": "TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 1,
+          "column": 10,
+          "message": "TS2614: Module '\"../application/todo-service\"' has no exported member 'TodoService'. Did you mean to use 'import TodoService from \"../application/todo-service\"' instead?",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 2,
+          "column": 10,
+          "message": "TS2614: Module '\"next/app\"' has no exported member 'useClient'. Did you mean to use 'import useClient from \"next/app\"' instead?",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 4,
+          "column": 39,
+          "message": "TS2307: Cannot find module '@tanstack/react-query' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 5,
+          "column": 23,
+          "message": "TS2307: Cannot find module 'react-toastify' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 6,
+          "column": 22,
+          "message": "TS2307: Cannot find module '../types/task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 7,
+          "column": 22,
+          "message": "TS2307: Cannot find module '../types/user' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 8,
+          "column": 25,
+          "message": "TS2307: Cannot find module '../hooks/use-user' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 9,
+          "column": 26,
+          "message": "TS2307: Cannot find module '../hooks/use-tasks' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 10,
+          "column": 31,
+          "message": "TS2307: Cannot find module '../hooks/use-create-task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 11,
+          "column": 29,
+          "message": "TS2307: Cannot find module '../hooks/use-edit-task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 12,
+          "column": 31,
+          "message": "TS2307: Cannot find module '../hooks/use-delete-task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 13,
+          "column": 33,
+          "message": "TS2307: Cannot find module '../hooks/use-complete-task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 14,
+          "column": 31,
+          "message": "TS2307: Cannot find module '../hooks/use-assign-task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 15,
+          "column": 35,
+          "message": "TS2307: Cannot find module '../hooks/use-prioritize-task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 16,
+          "column": 32,
+          "message": "TS2307: Cannot find module '../hooks/use-due-date-task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 17,
+          "column": 33,
+          "message": "TS2307: Cannot find module '../hooks/use-reminder-task' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 18,
+          "column": 32,
+          "message": "TS2307: Cannot find module '../hooks/use-search-tasks' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 19,
+          "column": 32,
+          "message": "TS2307: Cannot find module '../hooks/use-filter-tasks' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 20,
+          "column": 30,
+          "message": "TS2307: Cannot find module '../hooks/use-sort-tasks' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 21,
+          "column": 37,
+          "message": "TS2307: Cannot find module '../hooks/use-drag-and-drop-tasks' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 22,
+          "column": 36,
+          "message": "TS2307: Cannot find module '../hooks/use-realtime-updates' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 23,
+          "column": 42,
+          "message": "TS2307: Cannot find module '../hooks/use-collaboration-features' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 24,
+          "column": 48,
+          "message": "TS2307: Cannot find module '../hooks/use-permissions-and-access-control' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "line": 276,
+          "column": 21,
+          "message": "TS7006: Parameter 'task' implicitly has an 'any' type.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        }
+      ],
+      "warnings": [],
+      "duration": 898
+    },
+    {
+      "name": "Lint",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Lint",
+          "file": "eslintConfig",
+          "message": "Eslint verification failed: \nnpm notice run project-583598c3-ff2b-4fb4-8c88-60eb0fa17c86-root@0.1.0 lint\nnpm notice run npm run lint --workspace=apps/web\nnpm notice run project-583598c3-ff2b-4fb4-8c88-60eb0fa17c86@0.1.0 lint\nnpm notice run next lint\nInvalid project directory provided, no such directory: /home/ajaysaagar/Documents/Projects/Collabro-AI/collabro-ai/workspace/project/583598c3-ff2b-4fb4-8c88-60eb0fa17c86/apps/web/lint\nnpm error Lifecycle script `lint` failed with error:\nnpm error code 1\nnpm error path /home/aja",
+          "severity": "error",
+          "recommendation": "Fix linting issues using eslint --fix or manually adjusting rules."
+        }
+      ],
+      "warnings": [],
+      "duration": 301
+    },
+    {
+      "name": "Formatting",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0
+    },
+    {
+      "name": "Static Analysis",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/.next/types/validator.ts",
+          "message": "Broken relative import target: \"./routes.js\" in file apps/web/.next/types/validator.ts. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken relative import target: \"../app/loading\" in file apps/web/src/app/page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken relative import target: \"../app/error\" in file apps/web/src/app/page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken relative import target: \"../app/not-found\" in file apps/web/src/app/page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken relative import target: \"../domains/user/hooks\" in file apps/web/src/app/page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken relative import target: \"../domains/task/hooks\" in file apps/web/src/app/page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken relative import target: \"../services/auth\" in file apps/web/src/app/page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken relative import target: \"../services/task\" in file apps/web/src/app/page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/application/todo-service.ts",
+          "message": "Broken relative import target: \"../domains/user\" in file modules/todo/application/todo-service.ts. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/application/todo-service.ts",
+          "message": "Broken relative import target: \"../domains/task\" in file modules/todo/application/todo-service.ts. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/application/todo-service.ts",
+          "message": "Broken relative import target: \"../domains/enums/task-status\" in file modules/todo/application/todo-service.ts. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/application/todo-service.ts",
+          "message": "Broken relative import target: \"../domains/enums/task-priority\" in file modules/todo/application/todo-service.ts. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../types/task\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../types/user\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-user\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-tasks\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-create-task\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-edit-task\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-delete-task\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-complete-task\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-assign-task\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-prioritize-task\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-due-date-task\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-reminder-task\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-search-tasks\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-filter-tasks\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-sort-tasks\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-drag-and-drop-tasks\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-realtime-updates\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-collaboration-features\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-page.tsx",
+          "message": "Broken relative import target: \"../hooks/use-permissions-and-access-control\" in file modules/todo/presentation/todo-page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        }
+      ],
+      "warnings": [],
+      "duration": 16
+    },
+    {
+      "name": "Build",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Build",
+          "file": "Build bundle",
+          "message": "NextJS build execution failed: ▲ Next.js 16.2.10 (Turbopack)\n\n  Creating an optimized production build ...\n\nnpm notice run project-583598c3-ff2b-4fb4-8c88-60eb0fa17c86-root@0.1.0 build\nnpm notice run npm run build --workspace=apps/web\nnpm notice run project-583598c3-ff2b-4fb4-8c88-60eb0fa17c86@0.1.0 build\nnpm notice run next build\n⚠ You are using a non-standard \"NODE_ENV\" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env\n⚠ Warning: Next.js inferred your workspace root, but it may not be correct.\n We detected multiple lockfiles and selected the directory of /home/ajaysaagar/Documents/Projects/Collabro-AI/collabro-ai/package-lock.json as the root directory.\n To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.\n   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more informati",
+          "severity": "error",
+          "recommendation": "Check build error log, fix SSR hydration mismatches, client component imports, or syntax errors."
+        }
+      ],
+      "warnings": [],
+      "duration": 2718
+    },
+    {
+      "name": "Dev Server",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Dev Server",
+          "file": "next dev",
+          "message": "Dev server startup failed: Error: listen EADDRINUSE: address already in use :::3000\n    at <unknown> (Error: listen EADDRINUSE: address already in use :::3000)\n    at new Promise (<anonymous>) {\n  code: 'EADDRINUSE',\n  errno: -98,\n  syscall: 'listen',\n  address: '::',\n  port: 3000\n}\n",
+          "severity": "error",
+          "recommendation": "Check for port conflicts or startup runtime errors."
+        },
+        {
+          "stage": "Dev Server",
+          "file": "apps/web/src/app/layout.tsx",
+          "message": "⨯ Failed to start server",
+          "severity": "error",
+          "recommendation": "Check module path resolution, tsconfig aliases, or package.json dependencies."
+        },
+        {
+          "stage": "Dev Server",
+          "file": "apps/web/src/app/layout.tsx",
+          "message": "Error: listen EADDRINUSE: address already in use :::3000\n    at <unknown> (Error: listen EADDRINUSE: address already in use :::3000)\n    at new Promise (<anonymous>) {\n  code: 'EADDRINUSE',\n  errno: -98,\n  syscall: 'listen',\n  address: '::',\n  port: 3000\n}",
+          "severity": "error",
+          "recommendation": "Check module path resolution, tsconfig aliases, or package.json dependencies."
+        }
+      ],
+      "warnings": [],
+      "duration": 462
+    },
+    {
+      "name": "Runtime Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0
+    },
+    {
+      "name": "Browser Automation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        {
+          "stage": "Browser Automation",
+          "file": "__tests__/selenium-e2e.test.ts",
+          "message": "Selenium execution skipped: WebDriver / local browser is not configured or reachable in this system environment. Fallback browser compilation smoke test succeeded.",
+          "severity": "warning",
+          "recommendation": "To run Selenium E2E tests, ensure Chrome and ChromeDriver are installed on your host system."
+        }
+      ],
+      "duration": 818
+    },
+    {
+      "name": "Route Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Route Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "API Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "API Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Database Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Database Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "File Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "File Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Unit Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Unit Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Integration Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Integration Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Security Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Security Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Performance Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Performance Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Accessibility Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Accessibility Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "SEO Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "SEO Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Docker Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Docker Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "CI Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "CI Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Git Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Git Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "AI Architecture Review",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "AI Architecture Review completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Production Readiness",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Production Readiness completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Observability",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 1,
+      "output": "Observability completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Deployment Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Deployment Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Autonomous Self-Healing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Autonomous Self-Healing completed with code 0. Validated successfully."
+    }
+  ],
+  "totalErrors": 119,
+  "totalWarnings": 2,
+  "passed": false,
+  "duration": 6560
+}

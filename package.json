@@ -6,14 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "eval:smoke": "npx ts-node eval/runEval.ts --suite=smoke",
+    "eval:all": "npx ts-node eval/runEval.ts --suite=all"
   },
   "dependencies": {
     "adm-zip": "^0.6.0",
     "next": "16.2.10",
     "openai": "^6.47.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zod": "^3.25.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

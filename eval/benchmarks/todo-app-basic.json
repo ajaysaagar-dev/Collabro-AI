@@ -1,0 +1,15 @@
+{
+  "id": "todo-app-basic",
+  "name": "Basic Todo App",
+  "tags": ["smoke", "all"],
+  "stack": "nextjs-app-router",
+  "requestText": "Create a simple todo app with Next.js. It must have a list of todos, the ability to add new todos, mark them complete, and delete them. Use Tailwind for styling.",
+  "acceptanceCriteria": [
+    { "type": "file_exists", "value": "apps/web/src/app/page.tsx" },
+    { "type": "file_exists", "value": "apps/web/package.json" },
+    { "type": "page_loads", "value": "/" },
+    { "type": "selector_exists", "value": "h1" },
+    { "type": "no_console_errors" },
+    { "type": "axe_zero_critical" }
+  ]
+}

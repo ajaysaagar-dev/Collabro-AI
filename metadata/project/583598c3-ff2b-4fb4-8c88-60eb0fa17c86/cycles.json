@@ -1,0 +1,32 @@
+[
+  {
+    "cycle": 1,
+    "timestamp": 1784280762514,
+    "trigger": "Stage failed: Import Resolution",
+    "errorsFound": 119,
+    "agentsInvoked": [
+      "debugger"
+    ],
+    "resolved": false
+  },
+  {
+    "cycle": 2,
+    "timestamp": 1784280769288,
+    "trigger": "Stage failed: Import Resolution",
+    "errorsFound": 119,
+    "agentsInvoked": [
+      "debugger"
+    ],
+    "resolved": false
+  },
+  {
+    "cycle": 3,
+    "timestamp": 1784280775874,
+    "trigger": "Stage failed: Import Resolution",
+    "errorsFound": 119,
+    "agentsInvoked": [
+      "debugger"
+    ],
+    "resolved": false
+  }
+]

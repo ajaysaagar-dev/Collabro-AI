@@ -1,0 +1,45 @@
+{
+  "key": "vite-react",
+  "displayName": "Vite + React",
+  "description": "Vite 6 with React 19, TypeScript, and modern CSS",
+  "installCmd": "npm install --prefer-offline --no-audit",
+  "startCmd": "npm run dev",
+  "buildCmd": "npm run build",
+  "port": 5173,
+  "healthCheckPath": "/",
+  "routeMap": [
+    "/",
+    "/about",
+    "/dashboard"
+  ],
+  "criticalSelectors": [
+    "#root",
+    "nav",
+    "main",
+    "h1"
+  ],
+  "lighthouseThresholds": {
+    "performance": 75,
+    "accessibility": 90,
+    "bestPractices": 85,
+    "seo": 75
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "latest"
+  },
+  "devDependencies": {
+    "vite": "latest",
+    "@vitejs/plugin-react": "latest",
+    "typescript": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest"
+  },
+  "viteConfig": {
+    "server": {
+      "port": 5173,
+      "strictPort": false
+    }
+  }
+}

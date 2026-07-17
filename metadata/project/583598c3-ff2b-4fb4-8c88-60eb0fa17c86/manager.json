@@ -1,0 +1,260 @@
+[
+  {
+    "path": "package.json",
+    "content": "{\n  \"name\": \"project-583598c3-ff2b-4fb4-8c88-60eb0fa17c86-root\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"workspaces\": [\n    \"apps/*\",\n    \"domains... [truncated for AI, original length: 456]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "tsconfig.json",
+    "content": "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipL... [truncated for AI, original length: 815]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "README.md",
+    "content": "# COLLABRO AI Universal Software Project\nThis project follows the **Universal Software Project Architecture (USPA)** standard.\n\n## Structure\n- `apps/`... [truncated for AI, original length: 450]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": ".gitignore",
+    "content": "# dependencies\n/node_modules\n/.pnp\n.pnp.js\n\n# testing\n/coverage\n\n# next.js\n/.next/\n/out/\n\n# production\n/build\n\n# debug\nnpm-debug.log*\nyarn-debug.log*\n... [truncated for AI, original length: 257]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "apps/web/package.json",
+    "content": "{\n  \"name\": \"project-583598c3-ff2b-4fb4-8c88-60eb0fa17c86\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\"... [truncated for AI, original length: 1093]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "apps/web/tsconfig.json",
+    "content": "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipL... [truncated for AI, original length: 1216]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "apps/web/tailwind.config.js",
+    "content": "/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  content: [\n    \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/components/**/*.{js... [truncated for AI, original length: 480]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "apps/web/postcss.config.js",
+    "content": "module.exports = {\n  plugins: {\n    '@tailwindcss/postcss': {},\n    autoprefixer: {},\n  },\n}\n",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "apps/web/next.config.js",
+    "content": "/** @type {import('next').NextConfig} */\nconst fs = require('fs');\nconst path = require('path');\n\nlet webpackAliases = {};\ntry {\n  const mappingPath =... [truncated for AI, original length: 1279]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "apps/web/jest.config.js",
+    "content": "const nextJest = require('next/jest')\nconst fs = require('fs')\nconst path = require('path')\n\nconst createJestConfig = nextJest({\n  // Provide the path... [truncated for AI, original length: 1540]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "apps/web/jest.setup.js",
+    "content": "import '@testing-library/jest-dom'\n",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "apps/web/src/app/globals.css",
+    "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n:root {\n  --foreground-rgb: 0, 0, 0;\n  --background-start-rgb: 214, 219, 220;\n  --backgrou... [truncated for AI, original length: 538]",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "apps/web/src/app/layout.tsx",
+    "content": "import { useState, useEffect } from 'react';\nimport { useRouter } from 'next/router';\nimport { useClient } from 'next-app-router';\nimport { useTheme }... [truncated for AI, original length: 1285]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784280118383
+  },
+  {
+    "path": "apps/web/src/app/page.tsx",
+    "content": "import type { NextPage } from 'next';\nimport { useSession } from 'next-auth/react';\nimport { useState } from 'react';\nimport { useAuth } from '../doma... [truncated for AI, original length: 3647]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784280294972
+  },
+  {
+    "path": "domains/README.md",
+    "content": "# Domains\nHeart of the application containing business rules only.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "modules/README.md",
+    "content": "# Modules\nEvery feature becomes a module. Modules own UI, logic, tests, and infra.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "shared/README.md",
+    "content": "# Shared\nReusable types, utilities, and components.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "infrastructure/README.md",
+    "content": "# Infrastructure\nExternal implementations and adapters (database, cache, logger).",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "services/README.md",
+    "content": "# Services\nCross-domain services.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "integrations/README.md",
+    "content": "# Integrations\nThird-party APIs (Stripe, OpenAI, Google).",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "data/README.md",
+    "content": "# Data\nSchemas, migrations, seed, and cache.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "resources/README.md",
+    "content": "# Resources\nLocales, templates, themes.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "assets/README.md",
+    "content": "# Assets\nImages, audio, video.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "configs/README.md",
+    "content": "# Configurations\nNo hardcoded values config files.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "scripts/README.md",
+    "content": "# Scripts\nBuild, deploy, lint, format scripts.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "tests/README.md",
+    "content": "# Tests\nGlobal testing setup.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "deployment/README.md",
+    "content": "# Deployment\nDocker, Kubernetes, Terraform.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "docs/README.md",
+    "content": "# Documentation\nArchitecture and API documentation.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "metadata/README.md",
+    "content": "# Metadata\nproject.json, architecture.json.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "tools/README.md",
+    "content": "# Tools\nCLI tools and helper scripts.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "workspace/README.md",
+    "content": "# Workspace\nExports, artifacts, and temp files.",
+    "agent": "manager",
+    "generatedAt": 1784280073137
+  },
+  {
+    "path": "data/prisma/schema.prisma",
+    "content": "generator client {\n  provider = \"prisma-client-js\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nenum Role {\n  user... [truncated for AI, original length: 849]",
+    "agent": "database-dev",
+    "generatedAt": 1784280110908
+  },
+  {
+    "path": "domains/auth.ts",
+    "content": "import { PrismaClient } from '@prisma/client';\n\n// Database client singleton\nconst prisma = new PrismaClient();\n\n// User model\ninterface User {\n  id: ... [truncated for AI, original length: 1675]",
+    "agent": "database-dev",
+    "generatedAt": 1784280117051
+  },
+  {
+    "path": "shared/utils.ts",
+    "content": "import { type ClassValue, clsx } from 'clsx';\nimport { twMerge } from 'tailwind-merge';\n\nexport function cn(...inputs: ClassValue[]): string {\n  retur... [truncated for AI, original length: 13610]",
+    "agent": "backend-dev",
+    "generatedAt": 1784280164668
+  },
+  {
+    "path": "configs/.env",
+    "content": "DATABASE_URL=\"postgresql://user:password@localhost:5432/tododb?schema=public\"\nNEXTAUTH_SECRET=\"your-secret-key-here-change-in-production\"",
+    "agent": "backend-dev",
+    "generatedAt": 1784280169925
+  },
+  {
+    "path": "integrations/stripe.ts",
+    "content": "import { NextApiRequest, NextApiResponse } from 'next';\nimport { PrismaClient } from '@prisma/client';\n\nconst prisma = new PrismaClient();\n\nexport def... [truncated for AI, original length: 858]",
+    "agent": "backend-dev",
+    "generatedAt": 1784280174126
+  },
+  {
+    "path": "services/notification.ts",
+    "content": "import { PrismaClient } from '@prisma/client';\n\nconst prisma = new PrismaClient();\n\ninterface Notification {\n  channel: string;\n  message: string;\n}\n\n... [truncated for AI, original length: 1680]",
+    "agent": "backend-dev",
+    "generatedAt": 1784280174275
+  },
+  {
+    "path": "scripts/build.ts",
+    "content": "import { execSync } from 'child_process';\nimport { existsSync, mkdirSync, writeFileSync } from 'fs';\nimport { join } from 'path';\n\ninterface BuildConf... [truncated for AI, original length: 3524]",
+    "agent": "backend-dev",
+    "generatedAt": 1784280196720
+  },
+  {
+    "path": "domains/user.ts",
+    "content": "// domains/user.ts\nimport { Auth } from './auth';\n\nexport class User {\n  private static prismaClient: any;\n\n  public static async init(prismaClient: a... [truncated for AI, original length: 2095]",
+    "agent": "database-dev",
+    "generatedAt": 1784280234589
+  },
+  {
+    "path": "modules/todo/infrastructure/todo-repository.ts",
+    "content": "import { PrismaClient } from '@prisma/client'\nimport { User } from '../../domains/user'\nimport { Auth } from '../../domains/auth'\n\nconst prisma = new ... [truncated for AI, original length: 5988]",
+    "agent": "database-dev",
+    "generatedAt": 1784280251235
+  },
+  {
+    "path": "modules/todo/application/todo-service.ts",
+    "content": "import { PrismaClient } from '@prisma/client';\nimport { TodoRepository } from '../infrastructure/todo-repository';\nimport { User } from '../domains/us... [truncated for AI, original length: 950]",
+    "agent": "backend-dev",
+    "generatedAt": 1784280298096
+  },
+  {
+    "path": "modules/todo/presentation/todo-page.tsx",
+    "content": "import { TodoService } from '../application/todo-service';\nimport { useClient } from 'next/app/client';\nimport { useState, useEffect } from 'react';\ni... [truncated for AI, original length: 4313]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784280310332
+  },
+  {
+    "path": "tests/unit/todo-service.spec.ts",
+    "content": "import { PrismaClient } from '@prisma/client';\nimport { TodoService } from '../application/todo-service';\nimport { Todo } from '../prisma/model/Todo';... [truncated for AI, original length: 1361]",
+    "agent": "backend-dev",
+    "generatedAt": 1784280354198
+  }
+]

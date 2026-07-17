@@ -1,0 +1,239 @@
+{
+  "fileSpecs": [
+    {
+      "path": "configs/.env",
+      "purpose": "Environment configuration file containing environment variables for database connection and authentication secrets",
+      "requirements": [
+        "File must contain DATABASE_URL for PostgreSQL connection",
+        "File must contain NEXTAUTH_SECRET for authentication",
+        "File must be excluded from version control"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 50,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma database schema defining User and Task models with their relationships and constraints",
+      "requirements": [
+        "Schema must define User model with id, email, and password fields",
+        "Schema must define Task model with id, title, and userId foreign key",
+        "Schema must establish relation between Task and User models",
+        "Schema must use cuid() for primary keys"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "domains/auth.ts",
+      "purpose": "Pure business logic for authentication handling login, logout, and session management",
+      "requirements": [
+        "Authentication must be secure and reliable",
+        "Must implement JWT token generation and validation",
+        "Must handle password hashing and verification"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "domains/user.ts",
+      "purpose": "Pure business logic for user management including CRUD operations and validation",
+      "requirements": [
+        "User data must be secure and reliable",
+        "Must implement user creation, retrieval, update, and deletion",
+        "Must validate user input and handle errors"
+      ],
+      "dependencies": [
+        "domains/auth.ts"
+      ],
+      "estimatedTokens": 300,
+      "priority": "high",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "shared/utils.ts",
+      "purpose": "Shared utility functions for string manipulation, date formatting, and common operations",
+      "requirements": [
+        "Functions must be reusable and reliable",
+        "Must include helper functions for validation and transformation",
+        "Must be pure functions without side effects"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "services/notification.ts",
+      "purpose": "Service for sending notifications via email or push notifications",
+      "requirements": [
+        "Service must handle notification sending",
+        "Must support multiple notification channels",
+        "Must handle delivery failures gracefully"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "integrations/stripe.ts",
+      "purpose": "Integration with Stripe payment service for processing payments and managing subscriptions",
+      "requirements": [
+        "Integration must handle payment processing",
+        "Must create and manage payment intents",
+        "Must handle webhook events from Stripe"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/todo/infrastructure/todo-repository.ts",
+      "purpose": "Repository for todo list feature handling database CRUD operations for tasks",
+      "requirements": [
+        "Repository must handle database CRUD operations",
+        "Must use Prisma client for database interactions",
+        "Must implement task creation, retrieval, update, and deletion"
+      ],
+      "dependencies": [
+        "domains/user.ts",
+        "domains/auth.ts"
+      ],
+      "estimatedTokens": 300,
+      "priority": "high",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "modules/todo/application/todo-service.ts",
+      "purpose": "Use case for todo list feature implementing business logic for task management",
+      "requirements": [
+        "Service must handle task CRUD operations",
+        "Must validate task data before processing",
+        "Must coordinate between repository and domain logic"
+      ],
+      "dependencies": [
+        "domains/user.ts",
+        "domains/auth.ts",
+        "modules/todo/infrastructure/todo-repository.ts"
+      ],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/todo/presentation/todo-page.tsx",
+      "purpose": "UI component for todo list page handling task creation, editing, and deletion",
+      "requirements": [
+        "Page must handle task creation, editing, and deletion",
+        "Must provide user interface for managing tasks",
+        "Must integrate with todo-service for data operations"
+      ],
+      "dependencies": [
+        "modules/todo/application/todo-service.ts"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout for Next.js application providing global styling and navigation structure",
+      "requirements": [
+        "Layout must be responsive and accessible",
+        "Must include global CSS styles",
+        "Must provide navigation context for the application"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page for Next.js application handling user authentication and registration",
+      "requirements": [
+        "Page must handle user authentication and registration",
+        "Must provide login and registration forms",
+        "Must integrate with auth domain for authentication logic"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx",
+        "domains/auth.ts",
+        "domains/user.ts"
+      ],
+      "estimatedTokens": 800,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "scripts/build.ts",
+      "purpose": "Build script for application handling compilation and bundling",
+      "requirements": [
+        "Script must handle build process",
+        "Must compile TypeScript code",
+        "Must bundle assets for production"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "tests/unit/todo-service.spec.ts",
+      "purpose": "Unit test for todo service testing business logic and edge cases",
+      "requirements": [
+        "Test must handle unit testing",
+        "Must test all service methods",
+        "Must mock repository dependencies"
+      ],
+      "dependencies": [
+        "modules/todo/application/todo-service.ts"
+      ],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    }
+  ],
+  "dependencyGraph": {
+    "configs/.env": [],
+    "data/prisma/schema.prisma": [],
+    "domains/auth.ts": [],
+    "domains/user.ts": [
+      "domains/auth.ts"
+    ],
+    "shared/utils.ts": [],
+    "services/notification.ts": [],
+    "integrations/stripe.ts": [],
+    "modules/todo/infrastructure/todo-repository.ts": [
+      "domains/user.ts",
+      "domains/auth.ts"
+    ],
+    "modules/todo/application/todo-service.ts": [
+      "domains/user.ts",
+      "domains/auth.ts",
+      "modules/todo/infrastructure/todo-repository.ts"
+    ],
+    "modules/todo/presentation/todo-page.tsx": [
+      "modules/todo/application/todo-service.ts"
+    ],
+    "apps/web/src/app/layout.tsx": [],
+    "apps/web/src/app/page.tsx": [
+      "apps/web/src/app/layout.tsx",
+      "domains/auth.ts",
+      "domains/user.ts"
+    ],
+    "scripts/build.ts": [],
+    "tests/unit/todo-service.spec.ts": [
+      "modules/todo/application/todo-service.ts"
+    ]
+  },
+  "totalFiles": 14,
+  "estimatedTotalTokens": 4250
+}

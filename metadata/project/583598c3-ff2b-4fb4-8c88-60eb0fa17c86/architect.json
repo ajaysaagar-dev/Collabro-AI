@@ -1,0 +1,217 @@
+{
+  "folderStructure": "├── apps/├── domains/├── modules/├── shared/├── services/├── integrations/├── data/├── configs/├── scripts/├── tests/├── deployment/├── docs/└── metadata/",
+  "fileList": [
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout for Next.js application",
+      "requirements": [
+        "Layout must be responsive and accessible"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page for Next.js application",
+      "requirements": [
+        "Page must handle user authentication and registration"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx"
+      ],
+      "estimatedTokens": 800,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "domains/auth.ts",
+      "purpose": "Pure business logic for authentication",
+      "requirements": [
+        "Authentication must be secure and reliable"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "domains/user.ts",
+      "purpose": "Pure business logic for user management",
+      "requirements": [
+        "User data must be secure and reliable"
+      ],
+      "dependencies": [
+        "domains/auth.ts"
+      ],
+      "estimatedTokens": 300,
+      "priority": "high",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "modules/todo/presentation/todo-page.tsx",
+      "purpose": "UI component for todo list page",
+      "requirements": [
+        "Page must handle task creation, editing, and deletion"
+      ],
+      "dependencies": [
+        "modules/todo/application/todo-service.ts"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/todo/application/todo-service.ts",
+      "purpose": "Use case for todo list feature",
+      "requirements": [
+        "Service must handle task CRUD operations"
+      ],
+      "dependencies": [
+        "domains/user.ts",
+        "domains/auth.ts"
+      ],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/todo/infrastructure/todo-repository.ts",
+      "purpose": "Repository for todo list feature",
+      "requirements": [
+        "Repository must handle database CRUD operations"
+      ],
+      "dependencies": [
+        "domains/user.ts",
+        "domains/auth.ts"
+      ],
+      "estimatedTokens": 300,
+      "priority": "high",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "shared/utils.ts",
+      "purpose": "Shared utility functions",
+      "requirements": [
+        "Functions must be reusable and reliable"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "services/notification.ts",
+      "purpose": "Service for sending notifications",
+      "requirements": [
+        "Service must handle notification sending"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "integrations/stripe.ts",
+      "purpose": "Integration with Stripe payment service",
+      "requirements": [
+        "Integration must handle payment processing"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma schema for database",
+      "requirements": [
+        "Schema must handle database relationships and data models"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "high",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "configs/.env",
+      "purpose": "Environment configuration file",
+      "requirements": [
+        "File must contain environment variables"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 50,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "scripts/build.ts",
+      "purpose": "Build script for application",
+      "requirements": [
+        "Script must handle build process"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "tests/unit/todo-service.spec.ts",
+      "purpose": "Unit test for todo service",
+      "requirements": [
+        "Test must handle unit testing"
+      ],
+      "dependencies": [
+        "modules/todo/application/todo-service.ts"
+      ],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    }
+  ],
+  "apiEndpoints": [
+    {
+      "method": "GET",
+      "path": "/api/users",
+      "description": "Get all users",
+      "requestBody": "",
+      "responseBody": "array of user objects"
+    },
+    {
+      "method": "POST",
+      "path": "/api/users",
+      "description": "Create new user",
+      "requestBody": "user object",
+      "responseBody": "created user object"
+    },
+    {
+      "method": "GET",
+      "path": "/api/tasks",
+      "description": "Get all tasks",
+      "requestBody": "",
+      "responseBody": "array of task objects"
+    },
+    {
+      "method": "POST",
+      "path": "/api/tasks",
+      "description": "Create new task",
+      "requestBody": "task object",
+      "responseBody": "created task object"
+    }
+  ],
+  "databaseSchema": "model User {\n  id       String   @id @default(cuid())\n  email    String   @unique\n  password String\n}\n\nmodel Task {\n  id       String   @id @default(cuid())\n  title    String\n  user     User     @relation(fields: [userId], references: [id])\n  userId   String\n}",
+  "envVariables": [
+    "DATABASE_URL",
+    "NEXTAUTH_SECRET"
+  ],
+  "dependencies": {
+    "next": "^12.2.0",
+    "express": "^4.18.1",
+    "prisma": "^4.5.0",
+    "stripe": "^8.24.0"
+  },
+  "buildConfig": "npm run build && npm run start"
+}

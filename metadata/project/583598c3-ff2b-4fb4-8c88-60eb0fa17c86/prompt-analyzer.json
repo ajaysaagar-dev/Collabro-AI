@@ -1,0 +1,37 @@
+{
+  "projectType": "web-app",
+  "frontend": "Next.js",
+  "backend": "Node.js/Express",
+  "database": "Prisma + PostgreSQL",
+  "authentication": "none",
+  "features": [
+    "todo list",
+    "task creation",
+    "task editing",
+    "task deletion",
+    "task completion",
+    "user authentication",
+    "user registration",
+    "user profile management",
+    "task assignment",
+    "task prioritization",
+    "due date management",
+    "reminders",
+    "search functionality",
+    "filtering and sorting",
+    "drag-and-drop functionality",
+    "real-time updates",
+    "collaboration features",
+    "permissions and access control"
+  ],
+  "userRoles": [
+    "user",
+    "admin"
+  ],
+  "additionalServices": [
+    "email",
+    "file-upload",
+    "payment"
+  ],
+  "summary": "A web-based todo app that allows users to create, edit, and delete tasks, with features such as task completion, due date management, and reminders."
+}

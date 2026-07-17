@@ -1,0 +1,179 @@
+{
+  "folderStructure": "├── apps/├── domains/├── modules/├── shared/├── services/├── integrations/├── data/├── configs/├── scripts/├── tests/├── deployment/├── docs/└── metadata/",
+  "fileList": [
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout for Next.js application",
+      "requirements": [
+        "Next.js layout component",
+        "Responsive design"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page for Next.js application",
+      "requirements": [
+        "Next.js page component",
+        "Task list view"
+      ],
+      "dependencies": [
+        "apps/web/src/components/TaskList.tsx"
+      ],
+      "estimatedTokens": 300,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/task/presentation/TaskList.tsx",
+      "purpose": "Task list view component",
+      "requirements": [
+        "Task list data fetching",
+        "Task list rendering"
+      ],
+      "dependencies": [
+        "modules/task/application/TaskService.ts"
+      ],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/task/application/TaskService.ts",
+      "purpose": "Task service for fetching and updating tasks",
+      "requirements": [
+        "Task data fetching",
+        "Task data updating"
+      ],
+      "dependencies": [
+        "domains/Task.ts"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "domains/Task.ts",
+      "purpose": "Task entity for storing task data",
+      "requirements": [
+        "Task data schema",
+        "Task data validation"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma schema for defining database schema",
+      "requirements": [
+        "Database schema definition",
+        "Database migration"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "services/auth.ts",
+      "purpose": "Authentication service for handling user authentication",
+      "requirements": [
+        "User authentication",
+        "User session management"
+      ],
+      "dependencies": [
+        "next-auth"
+      ],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "integrations/stripe.ts",
+      "purpose": "Stripe integration for handling payment processing",
+      "requirements": [
+        "Payment processing",
+        "Payment gateway integration"
+      ],
+      "dependencies": [
+        "stripe"
+      ],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "configs/next.config.js",
+      "purpose": "Next.js configuration file for defining application settings",
+      "requirements": [
+        "Application settings",
+        "Environment variables"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "scripts/build.sh",
+      "purpose": "Build script for compiling and deploying application",
+      "requirements": [
+        "Build process",
+        "Deployment script"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    }
+  ],
+  "apiEndpoints": [
+    {
+      "method": "GET",
+      "path": "/api/tasks",
+      "description": "Fetches a list of tasks",
+      "requestBody": "",
+      "responseBody": "Task[]"
+    },
+    {
+      "method": "POST",
+      "path": "/api/tasks",
+      "description": "Creates a new task",
+      "requestBody": "Task",
+      "responseBody": "Task"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/tasks/:id",
+      "description": "Updates an existing task",
+      "requestBody": "Task",
+      "responseBody": "Task"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/tasks/:id",
+      "description": "Deletes a task",
+      "requestBody": "",
+      "responseBody": ""
+    }
+  ],
+  "databaseSchema": "model Task {\n  id       String   @id @default(cuid())\n  title    String\n  completed Boolean\n  dueDate  DateTime\n}\n",
+  "envVariables": [
+    "DATABASE_URL",
+    "NEXTAUTH_SECRET"
+  ],
+  "dependencies": {
+    "next": "^12.2.0",
+    "next-auth": "^4.4.0",
+    "prisma": "^4.4.0",
+    "stripe": "^8.24.0"
+  },
+  "buildConfig": "npm run build && npm run start"
+}

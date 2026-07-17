@@ -47,6 +47,7 @@ import type {
 import { loadAgentSettings, isAgentEnabled, AgentSettings } from './settings';
 import { writeAgentMetadata, writeValidationReport, appendCycleEntry, writeTimeline } from './metadata';
 import { runValidationPipeline, classifyErrorsByAgent } from './validation';
+import { checkImports, formatImportErrors } from '@/core/import-resolver';
 
 // Advanced Loop Prevention & Self-Healing Imports
 import { FileLockManager } from '@/core/repair/file-lock-manager';
@@ -430,6 +431,19 @@ export class OCollabro {
             const progress = Math.round((completedTasks / totalTasks) * 100);
             updateProject(this.projectId, { generatedFiles: [...generatedFiles] });
             updatePhase(this.projectId, 'implementation', { progress });
+          }
+
+          // Run zero-LLM local import resolution checks in memory before finalizing implementation
+          const importReport = checkImports(generatedFiles);
+          if (!importReport.passed) {
+            this.pushEvent(createEvent({
+              type: 'log',
+              phase: 'implementation',
+              agent: 'manager',
+              message: `[Import Resolution] Detected ${importReport.unresolvedImports.length} unresolved imports in generated files.`
+            }));
+            const formattedErrors = formatImportErrors(importReport);
+            this.log(formattedErrors);
           }
 
           updateProject(this.projectId, { generatedFiles });

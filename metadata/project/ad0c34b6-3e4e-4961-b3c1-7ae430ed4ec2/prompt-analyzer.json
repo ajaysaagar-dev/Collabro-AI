@@ -1,0 +1,26 @@
+{
+  "projectType": "web-app",
+  "frontend": "Next.js",
+  "backend": "Next.js API Routes",
+  "database": "Prisma + PostgreSQL",
+  "authentication": "NextAuth.js",
+  "features": [
+    "create tasks",
+    "read tasks",
+    "update tasks",
+    "delete tasks",
+    "task list view",
+    "task detail view",
+    "task completion status tracking",
+    "due dates",
+    "task prioritization",
+    "task search/filter",
+    "task categorization/tags",
+    "real-time updates"
+  ],
+  "userRoles": [
+    "user"
+  ],
+  "additionalServices": [],
+  "summary": "A web-based todo application that allows users to create, manage, and track tasks with features for task CRUD operations, status tracking, due dates, and organization through categories or tags."
+}

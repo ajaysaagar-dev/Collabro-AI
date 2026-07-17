@@ -4,6 +4,8 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 import http from 'http';
 
+import { checkImportsOnDisk } from '../core/import-resolver';
+
 const execPromise = promisify(exec);
 
 export interface ValidationError {
@@ -47,6 +49,12 @@ export async function runValidationPipeline(
 ): Promise<ValidationReport> {
   const startTime = Date.now();
   const stages: StageResult[] = [];
+
+  // Stage 0: Local Import Resolution Check
+  stages.push(await validateImportResolution(projectDir, onLog));
+  if (stages[0].status === 'fail') {
+    onLog('Import Resolution', 'Local imports validation failed. Skipping subsequent stages to avoid compile crashes.');
+  }
 
   // Stage 1: Project Structure Validation
   stages.push(await validateProjectStructure(projectDir, onLog));
@@ -115,6 +123,48 @@ export async function runValidationPipeline(
     totalWarnings,
     passed: totalErrors === 0,
     duration: Date.now() - startTime,
+  };
+}
+
+async function validateImportResolution(projectDir: string, onLog: (s: string, m: string) => void): Promise<StageResult> {
+  const start = Date.now();
+  onLog('Import Resolution', 'Running zero-LLM local import checks...');
+  const errors: ValidationError[] = [];
+
+  try {
+    const report = checkImportsOnDisk(projectDir);
+    if (!report.passed) {
+      for (const u of report.unresolvedImports) {
+        let message = `Broken local import: "${u.specifier}" in file ${u.importingFile}. Target resolved path "${u.resolvedPath}" does not exist.`;
+        if (u.kind === 'case_mismatch') {
+          message = `Case mismatch on local import: "${u.specifier}" in file ${u.importingFile}. Actual file is cased as "${u.nearestMatch}". Linux is case-sensitive!`;
+        } else if (u.kind === 'wrong_depth') {
+          message = `Path depth error: "${u.specifier}" in file ${u.importingFile} was not found, but a file with that name exists at "${u.nearestMatch}".`;
+        }
+        
+        errors.push({
+          stage: 'Import Resolution',
+          file: u.importingFile,
+          message,
+          severity: 'error',
+          recommendation: u.kind === 'case_mismatch'
+            ? `Rename import to match "${u.nearestMatch}" casing exactly.`
+            : u.kind === 'wrong_depth'
+            ? `Fix relative path depth segment count (../ vs ../../) to match "${u.nearestMatch}".`
+            : `Ensure the file "${u.specifier}" is actually created or remove the import.`
+        });
+      }
+    }
+  } catch (err) {
+    onLog('Import Resolution', `Error running import resolver: ${err}`);
+  }
+
+  return {
+    name: 'Import Resolution',
+    status: errors.length > 0 ? 'fail' : 'pass',
+    errors,
+    warnings: [],
+    duration: Date.now() - start
   };
 }
 
