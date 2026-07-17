@@ -1,0 +1,19 @@
+{
+  "projectType": "web-app",
+  "frontend": "Next.js",
+  "backend": "none",
+  "database": "none",
+  "authentication": "none",
+  "features": [
+    "basic arithmetic operations (addition, subtraction, multiplication, division)",
+    "user input handling",
+    "real-time calculation display",
+    "clear/reset functionality",
+    "keyboard support"
+  ],
+  "userRoles": [
+    "user"
+  ],
+  "additionalServices": [],
+  "summary": "A simple calculator web application that performs basic arithmetic operations. It will be a client-side only application built with Next.js that allows users to input numbers and operators to perform calculations."
+}

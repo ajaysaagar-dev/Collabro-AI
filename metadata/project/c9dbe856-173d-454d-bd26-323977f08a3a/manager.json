@@ -1,0 +1,236 @@
+[
+  {
+    "path": "package.json",
+    "content": "{\n  \"name\": \"project-c9dbe856-173d-454d-bd26-323977f08a3a-root\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"workspaces\": [\n    \"apps/*\",\n    \"domains... [truncated for AI, original length: 456]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "tsconfig.json",
+    "content": "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipL... [truncated for AI, original length: 815]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "README.md",
+    "content": "# COLLABRO AI Universal Software Project\nThis project follows the **Universal Software Project Architecture (USPA)** standard.\n\n## Structure\n- `apps/`... [truncated for AI, original length: 450]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": ".gitignore",
+    "content": "# dependencies\n/node_modules\n/.pnp\n.pnp.js\n\n# testing\n/coverage\n\n# next.js\n/.next/\n/out/\n\n# production\n/build\n\n# debug\nnpm-debug.log*\nyarn-debug.log*\n... [truncated for AI, original length: 257]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "apps/web/package.json",
+    "content": "{\n  \"name\": \"project-c9dbe856-173d-454d-bd26-323977f08a3a\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\"... [truncated for AI, original length: 1055]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "apps/web/tsconfig.json",
+    "content": "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipL... [truncated for AI, original length: 1216]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "apps/web/tailwind.config.js",
+    "content": "/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  content: [\n    \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/components/**/*.{js... [truncated for AI, original length: 480]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "apps/web/postcss.config.js",
+    "content": "module.exports = {\n  plugins: {\n    tailwindcss: {},\n    autoprefixer: {},\n  },\n}\n",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "apps/web/next.config.js",
+    "content": "/** @type {import('next').NextConfig} */\nconst fs = require('fs');\nconst path = require('path');\n\nlet webpackAliases = {};\ntry {\n  const mappingPath =... [truncated for AI, original length: 1279]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "apps/web/jest.config.js",
+    "content": "const nextJest = require('next/jest')\nconst fs = require('fs')\nconst path = require('path')\n\nconst createJestConfig = nextJest({\n  // Provide the path... [truncated for AI, original length: 1540]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "apps/web/jest.setup.js",
+    "content": "import '@testing-library/jest-dom'\n",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "apps/web/src/app/globals.css",
+    "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n:root {\n  --foreground-rgb: 0, 0, 0;\n  --background-start-rgb: 214, 219, 220;\n  --backgrou... [truncated for AI, original length: 538]",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "apps/web/src/app/layout.tsx",
+    "content": "import './globals.css'\nimport { Inter } from 'next/font/google'\nimport type { Metadata } from 'next'\nimport { ThemeProvider } from '@/modules/theme-pr... [truncated for AI, original length: 1523]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784272979301
+  },
+  {
+    "path": "apps/web/src/app/page.tsx",
+    "content": "'use client';\n\nimport { useEffect } from 'react';\nimport { useRouter } from 'next/navigation';\nimport { useAuth } from '@/modules/auth';\n\nexport defau... [truncated for AI, original length: 829]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784272983034
+  },
+  {
+    "path": "domains/README.md",
+    "content": "# Domains\nHeart of the application containing business rules only.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "modules/README.md",
+    "content": "# Modules\nEvery feature becomes a module. Modules own UI, logic, tests, and infra.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "shared/README.md",
+    "content": "# Shared\nReusable types, utilities, and components.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "infrastructure/README.md",
+    "content": "# Infrastructure\nExternal implementations and adapters (database, cache, logger).",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "services/README.md",
+    "content": "# Services\nCross-domain services.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "integrations/README.md",
+    "content": "# Integrations\nThird-party APIs (Stripe, OpenAI, Google).",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "data/README.md",
+    "content": "# Data\nSchemas, migrations, seed, and cache.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "resources/README.md",
+    "content": "# Resources\nLocales, templates, themes.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "assets/README.md",
+    "content": "# Assets\nImages, audio, video.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "configs/README.md",
+    "content": "# Configurations\nNo hardcoded values config files.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "scripts/README.md",
+    "content": "# Scripts\nBuild, deploy, lint, format scripts.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "tests/README.md",
+    "content": "# Tests\nGlobal testing setup.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "deployment/README.md",
+    "content": "# Deployment\nDocker, Kubernetes, Terraform.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "docs/README.md",
+    "content": "# Documentation\nArchitecture and API documentation.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "metadata/README.md",
+    "content": "# Metadata\nproject.json, architecture.json.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "tools/README.md",
+    "content": "# Tools\nCLI tools and helper scripts.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "workspace/README.md",
+    "content": "# Workspace\nExports, artifacts, and temp files.",
+    "agent": "manager",
+    "generatedAt": 1784272859218
+  },
+  {
+    "path": "configs/next.config.js",
+    "content": "const { defineConfig } = require('vite');\nconst nextConfig = require('./next.config');\n\nmodule.exports = defineConfig({\n  // ... nextConfig\n  typescri... [truncated for AI, original length: 444]",
+    "agent": "backend-dev",
+    "generatedAt": 1784272861056
+  },
+  {
+    "path": "data/prisma/schema.prisma",
+    "content": "generator client {\n  provider = \"prisma-client-js\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Calculator {... [truncated for AI, original length: 357]",
+    "agent": "database-dev",
+    "generatedAt": 1784272862454
+  },
+  {
+    "path": "configs/tailwind.config.js",
+    "content": "/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  darkMode: 'class',\n  content: [\n    './src/**/*.{js,jsx,ts,tsx}',\n    './pages/**/*.{... [truncated for AI, original length: 6813]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784272872238
+  },
+  {
+    "path": "modules/calculator/domain/CalculatorEntity.ts",
+    "content": "import { Decimal } from '@prisma/client/runtime';\n\nexport interface CalculatorState {\n  value: Decimal;\n  operator: string | null;\n  previousValue: De... [truncated for AI, original length: 3995]",
+    "agent": "backend-dev",
+    "generatedAt": 1784272879317
+  },
+  {
+    "path": "shared/utils/errorHandler.ts",
+    "content": "// shared/utils/errorHandler.ts\n\nimport { NextApiRequest, NextApiResponse } from 'next';\nimport { Logger } from 'loglevel';\n\nenum ErrorCode {\n  INVALI... [truncated for AI, original length: 1460]",
+    "agent": "backend-dev",
+    "generatedAt": 1784272921776
+  },
+  {
+    "path": "shared/utils/inputValidator.ts",
+    "content": "import { z } from 'zod';\n\nexport type ValidationResult<T> = \n  | { success: true; data: T }\n  | { success: false; error: string };\n\nconst numberRegex ... [truncated for AI, original length: 4085]",
+    "agent": "backend-dev",
+    "generatedAt": 1784272922618
+  },
+  {
+    "path": "modules/calculator/application/CalculatorService.ts",
+    "content": "import { CalculatorEntity } from '../domain/CalculatorEntity';\nimport { InputValidator } from '../utils/inputValidator';\nimport { ErrorHandler } from ... [truncated for AI, original length: 1204]",
+    "agent": "backend-dev",
+    "generatedAt": 1784272980291
+  },
+  {
+    "path": "modules/calculator/presentation/CalculatorPage.tsx",
+    "content": "'use client'\n\nimport { useState, useEffect, useCallback } from 'react'\nimport { CalculatorService } from '@/modules/calculator/application/CalculatorS... [truncated for AI, original length: 10562]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784273005339
+  }
+]

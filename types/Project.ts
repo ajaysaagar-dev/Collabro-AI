@@ -61,7 +61,7 @@ export interface ProjectState {
   prompt: string;
   model: ModelChoice;
   createdAt: number;
-  status: 'initializing' | 'running' | 'completed' | 'failed';
+  status: 'initializing' | 'running' | 'completed' | 'failed' | 'partial_success' | 'stalled';
   currentPhase: PipelinePhase;
   phases: PhaseProgress[];
   promptAnalysis?: PromptAnalysis;
@@ -72,4 +72,18 @@ export interface ProjectState {
   generatedFiles: GeneratedFile[];
   events: PipelineEvent[];
   error?: string;
+  repairReport?: {
+    status: string;
+    initialErrors: number;
+    fixedErrors: number;
+    remainingErrors: number;
+    progress: string;
+    repairCycles: number;
+    reason: string;
+    currentStrategy: string;
+    nextStrategy: string;
+    nextAgent: string;
+    rollbackAvailable: boolean;
+    escalationLevel: number;
+  };
 }

@@ -14,7 +14,7 @@ export async function GET(
     return NextResponse.json({ error: "Project not found" }, { status: 404 });
   }
 
-  if (project.status !== "completed") {
+  if (project.status !== "completed" && project.status !== "partial_success" && project.status !== "stalled") {
     return NextResponse.json({ error: "Project generation not completed yet" }, { status: 400 });
   }
 
@@ -23,7 +23,9 @@ export async function GET(
     
     // Create zip archive
     const zip = new AdmZip();
-    zip.addLocalFolder(projectDir);
+    zip.addLocalFolder(projectDir, "", (filename) => {
+      return !filename.includes("node_modules") && !filename.includes(".next");
+    });
     
     const zipBuffer = zip.toBuffer();
     const responseData = new Uint8Array(zipBuffer);

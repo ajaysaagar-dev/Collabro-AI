@@ -1,0 +1,200 @@
+{
+  "tasks": [
+    {
+      "id": "task-0-data-prisma-schema-prisma",
+      "fileSpec": {
+        "path": "data/prisma/schema.prisma",
+        "purpose": "Prisma schema for the application",
+        "requirements": [
+          "Theme toggle button implementation",
+          "Dark mode support",
+          "Light mode support"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 100,
+        "priority": "critical",
+        "assignedAgent": "database-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-1-configs-next-config-js",
+      "fileSpec": {
+        "path": "configs/next.config.js",
+        "purpose": "Next.js configuration file",
+        "requirements": [
+          "Theme toggle button implementation",
+          "Dark mode support",
+          "Light mode support"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 100,
+        "priority": "critical",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-2-shared-utils-theme-ts",
+      "fileSpec": {
+        "path": "shared/utils/theme.ts",
+        "purpose": "Theme utility functions",
+        "requirements": [
+          "Theme toggle button implementation",
+          "Dark mode support",
+          "Light mode support"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 100,
+        "priority": "critical",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-3-modules-theme-domain-theme-toggle-button-aggregate-ts",
+      "fileSpec": {
+        "path": "modules/theme/domain/theme-toggle-button-aggregate.ts",
+        "purpose": "Theme toggle button aggregate interface",
+        "requirements": [
+          "Theme toggle button implementation",
+          "Input validation for theme preference storage"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 100,
+        "priority": "critical",
+        "assignedAgent": "database-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-4-modules-theme-application-theme-toggle-button-commands-ts",
+      "fileSpec": {
+        "path": "modules/theme/application/theme-toggle-button-commands.ts",
+        "purpose": "Theme toggle button commands",
+        "requirements": [
+          "Theme toggle button implementation",
+          "Error handling for theme toggle failures"
+        ],
+        "dependencies": [
+          "modules/theme/domain/theme-toggle-button-aggregate.ts"
+        ],
+        "estimatedTokens": 300,
+        "priority": "high",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-3-modules-theme-domain-theme-toggle-button-aggregate-ts"
+      ]
+    },
+    {
+      "id": "task-5-modules-theme-presentation-theme-toggle-button-tsx",
+      "fileSpec": {
+        "path": "modules/theme/presentation/theme-toggle-button.tsx",
+        "purpose": "Theme toggle button component",
+        "requirements": [
+          "Theme toggle button implementation",
+          "Accessibility requirements for theme toggle button"
+        ],
+        "dependencies": [
+          "modules/theme/application/theme-toggle-button-commands.ts",
+          "shared/utils/theme.ts"
+        ],
+        "estimatedTokens": 200,
+        "priority": "high",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-4-modules-theme-application-theme-toggle-button-commands-ts",
+        "task-2-shared-utils-theme-ts"
+      ]
+    },
+    {
+      "id": "task-6-apps-web-src-app-page-tsx",
+      "fileSpec": {
+        "path": "apps/web/src/app/page.tsx",
+        "purpose": "Root page for the application",
+        "requirements": [
+          "Theme toggle button implementation",
+          "Dark mode support",
+          "Light mode support",
+          "Page theme switching functionality"
+        ],
+        "dependencies": [
+          "apps/web/src/app/layout.tsx",
+          "modules/theme/presentation/theme-toggle-button.tsx",
+          "shared/utils/theme.ts"
+        ],
+        "estimatedTokens": 600,
+        "priority": "high",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-7-apps-web-src-app-layout-tsx",
+        "task-5-modules-theme-presentation-theme-toggle-button-tsx",
+        "task-2-shared-utils-theme-ts"
+      ]
+    },
+    {
+      "id": "task-7-apps-web-src-app-layout-tsx",
+      "fileSpec": {
+        "path": "apps/web/src/app/layout.tsx",
+        "purpose": "Root layout for the application",
+        "requirements": [
+          "Theme toggle button implementation",
+          "Dark mode support",
+          "Light mode support"
+        ],
+        "dependencies": [
+          "apps/web/src/app/page.tsx",
+          "modules/theme/presentation/theme-toggle-button.tsx",
+          "shared/utils/theme.ts"
+        ],
+        "estimatedTokens": 500,
+        "priority": "high",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-6-apps-web-src-app-page-tsx",
+        "task-5-modules-theme-presentation-theme-toggle-button-tsx",
+        "task-2-shared-utils-theme-ts"
+      ]
+    }
+  ],
+  "executionOrder": [
+    "task-0-data-prisma-schema-prisma",
+    "task-1-configs-next-config-js",
+    "task-2-shared-utils-theme-ts",
+    "task-3-modules-theme-domain-theme-toggle-button-aggregate-ts",
+    "task-4-modules-theme-application-theme-toggle-button-commands-ts",
+    "task-5-modules-theme-presentation-theme-toggle-button-tsx",
+    "task-6-apps-web-src-app-page-tsx",
+    "task-7-apps-web-src-app-layout-tsx"
+  ],
+  "parallelGroups": [
+    [
+      "task-0-data-prisma-schema-prisma",
+      "task-1-configs-next-config-js",
+      "task-2-shared-utils-theme-ts",
+      "task-3-modules-theme-domain-theme-toggle-button-aggregate-ts"
+    ],
+    [
+      "task-4-modules-theme-application-theme-toggle-button-commands-ts"
+    ],
+    [
+      "task-5-modules-theme-presentation-theme-toggle-button-tsx"
+    ],
+    [
+      "task-6-apps-web-src-app-page-tsx",
+      "task-7-apps-web-src-app-layout-tsx"
+    ]
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "folderStructure": "├── apps/├── domains/├── modules/├── shared/├── services/├── integrations/├── data/├── configs/├── scripts/├── tests/├── deployment/├── docs/└── metadata/",
+  "fileList": [
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout for the application",
+      "requirements": [
+        "responsive design"
+      ],
+      "dependencies": [
+        "shared/styles"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page for the application",
+      "requirements": [
+        "responsive design"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx"
+      ],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "domains/todo/domain.ts",
+      "purpose": "Pure business rules for todo management",
+      "requirements": [
+        "create todos",
+        "read todos",
+        "update todos",
+        "delete todos"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "modules/todo/presentation/todo-list.tsx",
+      "purpose": "Todo list component",
+      "requirements": [
+        "todo list management",
+        "todo filtering (all/active/completed)",
+        "todo search"
+      ],
+      "dependencies": [
+        "modules/todo/application/todo-service.ts"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/todo/application/todo-service.ts",
+      "purpose": "Todo service for business logic",
+      "requirements": [
+        "create todos",
+        "read todos",
+        "update todos",
+        "delete todos"
+      ],
+      "dependencies": [
+        "domains/todo/domain.ts"
+      ],
+      "estimatedTokens": 400,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/todo/infrastructure/todo-repository.ts",
+      "purpose": "Todo repository for data access",
+      "requirements": [
+        "create todos",
+        "read todos",
+        "update todos",
+        "delete todos"
+      ],
+      "dependencies": [
+        "data/prisma/schema.prisma"
+      ],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "shared/styles/globals.css",
+      "purpose": "Global styles for the application",
+      "requirements": [
+        "responsive design"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "services/auth-service.ts",
+      "purpose": "Authentication service for user management",
+      "requirements": [
+        "user authentication"
+      ],
+      "dependencies": [
+        "next-auth"
+      ],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma schema for database persistence",
+      "requirements": [
+        "create todos",
+        "read todos",
+        "update todos",
+        "delete todos"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "configs/next.config.js",
+      "purpose": "Next.js configuration file",
+      "requirements": [
+        "responsive design"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 50,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "scripts/build.sh",
+      "purpose": "Build script for the application",
+      "requirements": [
+        "responsive design"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 50,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    }
+  ],
+  "apiEndpoints": [
+    {
+      "method": "GET",
+      "path": "/api/todos",
+      "description": "Retrieve a list of todos",
+      "requestBody": "{}",
+      "responseBody": "Array<Todo>"
+    },
+    {
+      "method": "POST",
+      "path": "/api/todos",
+      "description": "Create a new todo",
+      "requestBody": "Todo",
+      "responseBody": "Todo"
+    },
+    {
+      "method": "GET",
+      "path": "/api/todos/:id",
+      "description": "Retrieve a single todo",
+      "requestBody": "{}",
+      "responseBody": "Todo"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/todos/:id",
+      "description": "Update a single todo",
+      "requestBody": "Todo",
+      "responseBody": "Todo"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/todos/:id",
+      "description": "Delete a single todo",
+      "requestBody": "{}",
+      "responseBody": "{}"
+    }
+  ],
+  "databaseSchema": "model Todo {\n  id       String   @id @default(cuid())\n  title    String\n  completed Boolean\n  dueDate  DateTime\n  priority Integer\n}\n",
+  "envVariables": [
+    "DATABASE_URL",
+    "NEXTAUTH_SECRET"
+  ],
+  "dependencies": {
+    "next": "^12.2.5",
+    "next-auth": "^4.2.1",
+    "prisma": "^4.2.1",
+    "prisma-client": "^4.2.1"
+  },
+  "buildConfig": "npm run build && npm run start"
+}

@@ -1,0 +1,16 @@
+{
+  "projectType": "web-app",
+  "frontend": "Next.js",
+  "backend": "none",
+  "database": "none",
+  "authentication": "none",
+  "features": [
+    "theme toggle button",
+    "dark mode support",
+    "light mode support",
+    "theme switching functionality"
+  ],
+  "userRoles": [],
+  "additionalServices": [],
+  "summary": "A simple web application with a theme toggle button that allows users to switch between dark and light modes. This is a client-side only feature with no backend or database requirements."
+}

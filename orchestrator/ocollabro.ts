@@ -48,6 +48,19 @@ import { loadAgentSettings, isAgentEnabled, AgentSettings } from './settings';
 import { writeAgentMetadata, writeValidationReport, appendCycleEntry, writeTimeline } from './metadata';
 import { runValidationPipeline, classifyErrorsByAgent } from './validation';
 
+// Advanced Loop Prevention & Self-Healing Imports
+import { FileLockManager } from '@/core/repair/file-lock-manager';
+import { generateErrorFingerprint } from '@/core/repair/fingerprinter';
+import { buildFileDependencyGraph, buildErrorDependencyGraph } from '@/core/repair/dependency-graph';
+import { analyzeRootCauses } from '@/core/repair/root-cause-analyzer';
+import { createRepairPlan } from '@/core/repair/repair-planner';
+import { reviewPatch } from '@/core/repair/patch-reviewer';
+import { executePatch, rollbackRepairPlan } from '@/core/repair/patch-executor';
+import { SupervisorAgent } from '@/core/repair/supervisor';
+import { createValidationCache } from '@/core/repair/incremental-validator';
+import { createErrorMemory } from '@/core/repair/fingerprinter';
+import { AtomicPatch, ValidationError, StrategyAttempt } from '@/core/repair/types';
+
 
 
 export function addOrUpdateGeneratedFile(files: GeneratedFile[], file: GeneratedFile) {
@@ -427,7 +440,7 @@ export class OCollabro {
         const updatedProject = getProject(this.projectId)!;
 
         // ── Phase 7: Strict Validation & Agile Self-Healing Loop ──────────────────
-        await this.runPhase<GeneratedFile>('testing', 'tester', async () => {
+        await this.runPhase<any>('testing', 'tester', async () => {
           // Check if testing/tester is enabled
           if (!isAgentEnabled(this.settings, 'tester')) {
             this.pushEvent(createEvent({
@@ -439,142 +452,353 @@ export class OCollabro {
             return {} as GeneratedFile;
           }
 
-          const testContent = await generateTests(updatedProject.generatedFiles, analysis);
-          const testFile: GeneratedFile = {
-            path: '__tests__/app.test.tsx',
-            content: testContent,
-            agent: 'tester',
-            generatedAt: Date.now(),
-          };
-          addOrUpdateGeneratedFile(updatedProject.generatedFiles, testFile);
-          updateProject(this.projectId, { generatedFiles: [...updatedProject.generatedFiles] });
+          const testFiles = await generateTests(updatedProject.generatedFiles, analysis);
+          for (const file of testFiles) {
+            addOrUpdateGeneratedFile(updatedProject.generatedFiles, file);
+          }
 
           const projectDir = path.join(process.cwd(), 'workspace', 'project', this.projectId);
           
+          // Verify and recover any missing files from Architecture plan
+          const missingSpecs: FileSpec[] = [];
+          for (const spec of architecture.fileList) {
+            const hasInMemory = updatedProject.generatedFiles.some(f => f.path === spec.path);
+            const fullPath = path.join(projectDir, spec.path);
+            let existsOnDisk = false;
+            try {
+              await fs.access(fullPath);
+              existsOnDisk = true;
+            } catch {
+              // Not on disk
+            }
+            if (!hasInMemory || !existsOnDisk) {
+              missingSpecs.push(spec);
+            }
+          }
+
+          if (missingSpecs.length > 0) {
+            this.pushEvent(createEvent({
+              type: 'log',
+              phase: 'testing',
+              agent: 'manager',
+              message: `Recovery: Re-generating ${missingSpecs.length} missing files from architecture...`
+            }));
+
+            for (const spec of missingSpecs) {
+              this.log(`Re-generating missing file: ${spec.path}`);
+              try {
+                // Ensure parent directory exists
+                const fullPath = path.join(projectDir, spec.path);
+                await fs.mkdir(path.dirname(fullPath), { recursive: true });
+
+                // Call generation
+                let content = await this.generateFile(spec, { analysis, architecture });
+                content = stripCodeFences(content);
+
+                // Config normalization if applicable
+                if (spec.path === 'package.json') {
+                  content = mergePackageJson(getDefaultPackageJson(this.projectId), content);
+                } else if (spec.path === 'tsconfig.json') {
+                  content = mergeTsConfig(getDefaultTsConfig(), content);
+                } else if (spec.path === 'next.config.js') {
+                  content = content.trim().length > 10 ? content : getDefaultNextConfig();
+                }
+
+                const file: GeneratedFile = {
+                  path: spec.path,
+                  content,
+                  agent: spec.assignedAgent,
+                  generatedAt: Date.now()
+                };
+
+                addOrUpdateGeneratedFile(updatedProject.generatedFiles, file);
+                await this.writeProjectFileToDisk(file.path, file.content);
+                
+                this.pushEvent(createEvent({
+                  type: 'file-generated',
+                  phase: 'testing',
+                  agent: spec.assignedAgent,
+                  message: `Recovered missing file: ${spec.path}`,
+                  data: { filePath: spec.path, size: content.length }
+                }));
+              } catch (err) {
+                this.log(`Failed to recover missing file ${spec.path}: ${err}`);
+              }
+            }
+            
+            // Sync memory store
+            updateProject(this.projectId, { generatedFiles: [...updatedProject.generatedFiles] });
+          }
+
           // Write all files to disk first
           for (const file of updatedProject.generatedFiles) {
             await this.writeProjectFileToDisk(file.path, file.content);
           }
 
-          let hasErrors = true;
-          this.cycleCount = 0;
+          // Initialize advanced self-healing and loop prevention modules
+          const fileLockManager = new FileLockManager();
+          const validationCache = createValidationCache();
+          const errorMemory = createErrorMemory();
+          const supervisor = new SupervisorAgent({ maxCycles: this.MAX_CYCLES });
+          let previousErrors: ValidationError[] = [];
+          const strategyAttempts: StrategyAttempt[] = [];
+          
+          // 1. Initial Validation run
+          const initialReport = await runValidationPipeline(projectDir, this.projectId, (stage, msg) => {
+            this.pushEvent(createEvent({
+              type: 'log',
+              phase: 'testing',
+              agent: 'tester',
+              message: `[${stage}] ${msg}`
+            }));
+          });
+          await writeValidationReport(this.projectId, initialReport);
+          let currentErrors = initialReport.stages.flatMap(s => s.errors);
+          previousErrors = [...currentErrors];
 
-          while (hasErrors && this.cycleCount < this.MAX_CYCLES) {
-            this.cycleCount++;
-            this.log(`Starting Validation Cycle ${this.cycleCount}/${this.MAX_CYCLES}...`);
-            updatePhase(this.projectId, 'testing', {
-              iterations: this.cycleCount
-            });
+          if (currentErrors.length > 0) {
+            supervisor.initialize(currentErrors.length);
+            this.cycleCount = 0;
 
-            // Execute the strict validation pipeline
-            const report = await runValidationPipeline(projectDir, this.projectId, (stage, msg) => {
+            while (supervisor.shouldContinue() && currentErrors.length > 0) {
+              const cycleStartTime = Date.now();
+              this.cycleCount++;
+              this.log(`Starting Advanced Self-Healing Cycle ${this.cycleCount}/${this.MAX_CYCLES}...`);
+              updatePhase(this.projectId, 'testing', {
+                iterations: this.cycleCount
+              });
+
+              const supervisorAction = supervisor.onCycleStart(this.cycleCount);
+              if (supervisorAction === 'escalate' || supervisorAction === 'architecture-review') {
+                this.log(`Supervisor requested escalation: ${supervisorAction}`);
+                break;
+              }
+
+              // 2. Build Dependency Graphs & Analyze Root Causes
+              const fileGraph = await buildFileDependencyGraph(projectDir);
+              const errorGraph = buildErrorDependencyGraph(currentErrors, fileGraph);
+              const rootCauseAnalysis = analyzeRootCauses(errorGraph);
+
+              // Log root cause details
               this.pushEvent(createEvent({
                 type: 'log',
                 phase: 'testing',
                 agent: 'tester',
-                message: `[${stage}] ${msg}`
+                message: `Root Cause Analysis:`
               }));
-            });
-
-            // Write report to metadata
-            await writeValidationReport(this.projectId, report);
-
-            const allErrors = report.stages.flatMap(s => s.errors);
-            
-            // Log cycle entry
-            const cycleEntry = {
-              cycle: this.cycleCount,
-              timestamp: Date.now(),
-              trigger: allErrors.length > 0 ? `Stage failed: ${allErrors[0].stage}` : 'Initial run',
-              errorsFound: allErrors.length,
-              agentsInvoked: [] as string[],
-              resolved: allErrors.length === 0
-            };
-
-            if (allErrors.length > 0) {
-              this.log(`Cycle ${this.cycleCount} failed with ${allErrors.length} errors.`);
-              
-              // Classify errors by responsible agent
-              const mappedErrors = classifyErrorsByAgent(allErrors);
-              
-              // Invoke self-healing logic for each agent role
-              for (const [agentRole, agentErrors] of Object.entries(mappedErrors)) {
-                if (agentErrors.length === 0) continue;
-
-                // Check if debugger agent is enabled
-                if (!isAgentEnabled(this.settings, 'debugger')) {
-                  this.log(`Debugger agent is disabled. Cannot fix errors for ${agentRole}.`);
-                  continue;
-                }
-
-                cycleEntry.agentsInvoked.push(agentRole);
+              const explanationLines = rootCauseAnalysis.explanation.split('\n');
+              for (const line of explanationLines) {
+                if (line.trim() === '') continue;
                 this.pushEvent(createEvent({
                   type: 'log',
                   phase: 'testing',
                   agent: 'tester',
-                  message: `Debugger: Routing ${agentErrors.length} errors to ${agentRole} for cycle ${this.cycleCount}.`
+                  message: line
+                }));
+              }
+
+              // 3. Create Repair Plan
+              const repairPlan = createRepairPlan(rootCauseAnalysis, errorGraph, undefined, strategyAttempts);
+              const appliedPatches: AtomicPatch[] = [];
+              const rolledBackPatches: AtomicPatch[] = [];
+
+              // 4. Execute Repair Plan patches atomically
+              for (const patch of repairPlan.patches) {
+                // Verify lock and cooldown
+                const canEditCheck = fileLockManager.canEdit(patch.file);
+                if (!canEditCheck.allowed) {
+                  this.log(`Cannot edit ${patch.file}: ${canEditCheck.reason}`);
+                  continue;
+                }
+
+                // Acquire lock
+                fileLockManager.acquireLock(patch.file, patch.id, patch.createdBy, patch.description);
+
+                const fullFilePath = path.join(projectDir, patch.file);
+                let originalContent = '';
+                try {
+                  originalContent = await fs.readFile(fullFilePath, 'utf-8');
+                } catch {
+                  // File might be missing
+                }
+
+                // Gather error log for this specific file
+                const fileSpecificErrors = currentErrors.filter(e => e.file === patch.file);
+                const errorLog = fileSpecificErrors.map(e => `[Line ${e.line || '?'}] ${e.message}`).join('\n');
+
+                this.pushEvent(createEvent({
+                  type: 'log',
+                  phase: 'testing',
+                  agent: 'tester',
+                  message: `Healing file ${patch.file} using Debugger Agent...`
                 }));
 
-                // Fix each file associated with this agent's errors
-                const uniqueErrorFiles = Array.from(new Set(agentErrors.map(e => e.file)));
-                for (const errFile of uniqueErrorFiles) {
-                  const fullFilePath = path.join(projectDir, errFile);
-                  try {
-                    // Check if file exists
-                    await fs.access(fullFilePath);
-                    const originalContent = await fs.readFile(fullFilePath, 'utf-8');
-                    
-                    const combinedLogs = agentErrors.map(e => `[Line ${e.line || '?'}] ${e.message}`).join('\n');
-                    
-                    this.pushEvent(createEvent({
-                      type: 'log',
-                      phase: 'testing',
-                      agent: 'tester',
-                      message: `Debugger: Re-generating & correcting code for ${errFile}...`
-                    }));
+                // Call Debugger Agent to correct code
+                const correctedContent = await debugCodeFile({
+                  path: patch.file,
+                  content: originalContent,
+                  errorLog,
+                  analysis,
+                  architecture
+                });
 
-                    const correctedContent = await debugCodeFile({
-                      path: errFile,
-                      content: originalContent,
-                      errorLog: combinedLogs,
-                      analysis,
-                      architecture
-                    });
+                patch.diff = {
+                  oldContent: originalContent,
+                  newContent: correctedContent,
+                  hunks: [],
+                  linesAdded: 0,
+                  linesRemoved: 0,
+                  linesChanged: 0
+                };
 
-                    // Save fixed content
-                    await fs.writeFile(fullFilePath, correctedContent, 'utf-8');
+                // Review patch for safety & confidence
+                const reviewResult = await reviewPatch(patch, originalContent, fileLockManager);
+                if (!reviewResult.approved) {
+                  this.log(`Patch rejected for ${patch.file}: ${reviewResult.concerns.join(', ')}`);
+                  fileLockManager.forceReleaseLock(patch.file);
+                  continue;
+                }
 
-                    // Update memory state
-                    const state = getProject(this.projectId)!;
-                    addOrUpdateGeneratedFile(state.generatedFiles, {
-                      path: errFile,
-                      content: correctedContent,
-                      agent: agentRole as AgentRole,
-                      generatedAt: Date.now()
-                    });
-                    updateProject(this.projectId, { generatedFiles: [...state.generatedFiles] });
-                    
-                    this.log(`Successfully patched file: ${errFile}`);
-                  } catch (e) {
-                    console.error(`[OCollabro] Failed to repair file ${errFile}:`, e);
-                  }
+                // Apply patch atomically
+                const repairContext = {
+                  projectId: this.projectId,
+                  projectDir,
+                  state: 'applying-patches' as const,
+                  cycleCount: this.cycleCount,
+                  maxCycles: this.MAX_CYCLES,
+                  errorBudget: supervisor.getState().errorBudget,
+                  supervisorState: supervisor.getState(),
+                  validationCache,
+                  errorMemory,
+                  fileLocks: new Map(),
+                  fileLifecycles: new Map(),
+                  appliedPatches,
+                  rolledBackPatches,
+                  validationResults: [],
+                  startTime: Date.now(),
+                  lastProgressTime: Date.now()
+                };
+
+                const patchResult = await executePatch(patch, projectDir, fileLockManager, repairContext, validationCache);
+                if (patchResult.success) {
+                  patch.status = 'applied';
+                  appliedPatches.push(patch);
+                  fileLockManager.recordPatch(patch.file, patch);
+                  
+                  // Update state in project memory
+                  const projectState = getProject(this.projectId)!;
+                  addOrUpdateGeneratedFile(projectState.generatedFiles, {
+                    path: patch.file,
+                    content: correctedContent,
+                    agent: patch.createdBy,
+                    generatedAt: Date.now()
+                  });
+                  updateProject(this.projectId, { generatedFiles: [...projectState.generatedFiles] });
+                  this.log(`Atomic patch successfully applied to ${patch.file}`);
+                } else {
+                  patch.status = 'rolled-back';
+                  rolledBackPatches.push(patch);
+                  fileLockManager.recordRollback(patch.file, patch.id);
+                  this.log(`Patch failed on ${patch.file}. Automatically rolled back.`);
                 }
               }
 
-              // Append cycle logs
+              // 5. Post-repair Validation
+              const nextReport = await runValidationPipeline(projectDir, this.projectId, (stage, msg) => {
+                this.pushEvent(createEvent({
+                  type: 'log',
+                  phase: 'testing',
+                  agent: 'tester',
+                  message: `[${stage}] ${msg}`
+                }));
+              });
+              await writeValidationReport(this.projectId, nextReport);
+              const nextErrors = nextReport.stages.flatMap(s => s.errors);
+
+              // Update cycle log metadata
+              const cycleEntry = {
+                cycle: this.cycleCount,
+                timestamp: Date.now(),
+                trigger: currentErrors.length > 0 ? `Stage failed: ${currentErrors[0].stage}` : 'Advanced healing cycle',
+                errorsFound: nextErrors.length,
+                agentsInvoked: ['debugger'],
+                resolved: nextErrors.length === 0
+              };
               await appendCycleEntry(this.projectId, cycleEntry);
-            } else {
-              this.log(`Validation pipeline PASSED on cycle ${this.cycleCount}!`);
-              hasErrors = false;
-              await appendCycleEntry(this.projectId, cycleEntry);
+
+              // 6. Complete cycle in Supervisor
+              const cycleCompletion = supervisor.onCycleComplete(
+                this.cycleCount,
+                nextErrors,
+                currentErrors,
+                appliedPatches,
+                rolledBackPatches
+              );
+
+              // Record this strategy attempt
+              const cycleDuration = Date.now() - cycleStartTime;
+              const errorsFixed = currentErrors.length - nextErrors.length;
+              
+              for (const patch of repairPlan.patches) {
+                strategyAttempts.push({
+                  strategy: patch.strategy,
+                  attemptNumber: strategyAttempts.filter(a => a.strategy === patch.strategy).length + 1,
+                  patchIds: [patch.id],
+                  result: nextErrors.length < currentErrors.length ? 'success' : 'failure',
+                  errorsFixed: errorsFixed > 0 ? errorsFixed : 0,
+                  errorsIntroduced: nextErrors.length > currentErrors.length ? nextErrors.length - currentErrors.length : 0,
+                  regressions: rolledBackPatches.length,
+                  duration: cycleDuration,
+                  timestamp: Date.now()
+                });
+              }
+
+              previousErrors = [...currentErrors];
+              currentErrors = nextErrors;
+
+              if (cycleCompletion.action === 'escalate' || cycleCompletion.action === 'rollback') {
+                this.log(`Supervisor triggered rollback/escalation action: ${cycleCompletion.action}`);
+                // Rollback entire plan's applied patches if regression detected
+                await rollbackRepairPlan(repairPlan, projectDir, fileLockManager, validationCache);
+                break;
+              }
             }
           }
 
-          if (hasErrors) {
-            throw new Error(`Self-healing validation pipeline failed to converge after ${this.MAX_CYCLES} cycles.`);
+          const initialErrors = initialReport.stages.flatMap(s => s.errors).length;
+          const remainingErrors = currentErrors.length;
+          const fixedErrors = Math.max(0, initialErrors - remainingErrors);
+          const progressPercentage = initialErrors > 0 ? ((fixedErrors / initialErrors) * 100).toFixed(1) : '100.0';
+          
+          let repairStatus = 'SUCCESS';
+          let reason = 'All errors resolved';
+          
+          if (remainingErrors > 0) {
+            const isStalled = supervisor.getState().errorBudget.stagnationCycles >= 3;
+            repairStatus = isStalled ? 'STALLED' : 'PARTIAL_SUCCESS';
+            reason = isStalled ? 'No improvement detected (stagnation)' : 'Self-healing loop did not fully converge within maximum cycles';
           }
+          
+          const repairReport = {
+            status: repairStatus,
+            initialErrors,
+            fixedErrors,
+            remainingErrors,
+            progress: `${progressPercentage}%`,
+            repairCycles: this.cycleCount,
+            reason,
+            currentStrategy: 'Advanced Self-Healing',
+            nextStrategy: 'Architecture Review',
+            nextAgent: 'architecture-review-agent',
+            rollbackAvailable: true,
+            escalationLevel: remainingErrors > 0 ? 4 : 0
+          };
+          
+          this.log(`Validation and healing finished. Status: ${repairStatus}. Remaining errors: ${remainingErrors}`);
+          
+          updateProject(this.projectId, { repairReport });
 
-          return testFile;
+          return repairReport;
         });
 
         // ── Phase 8: Documentation ────────────────────────────────────────────
@@ -621,7 +845,10 @@ export class OCollabro {
         instructions += `2. **Run in Development Mode**:\n`;
         instructions += `   \`\`\`bash\n`;
         instructions += `   npm run dev\n`;
-        instructions += `   \`\`\`\n`;
+        instructions += `   \`\`\`\n\n`;
+        instructions += `> [!IMPORTANT]\n`;
+        instructions += `> **Avoid Copying \`node_modules\`**:\n`;
+        instructions += `> If you copy, archive, or move this project directory, do NOT include the \`node_modules\` folder. Copying \`node_modules\` directly converts symbolic links (such as \`node_modules/.bin/next\`) into regular text/script files, causing crashes with errors like \`Cannot find module '../server/require-hook'\` due to failed relative path resolution in Node.js. Always run a clean \`npm install\` to generate correct native symlinks.\n`;
 
         const instructionsFile: GeneratedFile = {
           path: 'RUN_INSTRUCTIONS.md',
@@ -630,6 +857,46 @@ export class OCollabro {
           generatedAt: Date.now()
         };
         addOrUpdateGeneratedFile(finalState.generatedFiles, instructionsFile);
+
+        // Generate mapping.json based on all generated files and workspace directories
+        const filesMap: Record<string, any> = {};
+        for (const file of finalState.generatedFiles) {
+          filesMap[file.path] = {
+            agent: file.agent,
+            generatedAt: file.generatedAt
+          };
+        }
+
+        const mappingObj = {
+          projectRoot: '.',
+          folders: {
+            apps: 'apps',
+            web: 'apps/web',
+            modules: 'modules',
+            shared: 'shared',
+            domains: 'domains',
+            infrastructure: 'infrastructure',
+            services: 'services',
+            integrations: 'integrations'
+          },
+          aliases: {
+            '@/modules': 'modules',
+            '@/shared': 'shared',
+            '@/domains': 'domains',
+            '@/infrastructure': 'infrastructure',
+            '@/services': 'services',
+            '@/integrations': 'integrations'
+          },
+          files: filesMap
+        };
+
+        const mappingFile: GeneratedFile = {
+          path: 'mapping.json',
+          content: JSON.stringify(mappingObj, null, 2),
+          agent: 'manager',
+          generatedAt: Date.now()
+        };
+        addOrUpdateGeneratedFile(finalState.generatedFiles, mappingFile);
         updateProject(this.projectId, { generatedFiles: [...finalState.generatedFiles] });
 
         // Write final outputs to workspace
@@ -637,12 +904,21 @@ export class OCollabro {
           await this.writeProjectFileToDisk(file.path, file.content);
         }
 
-        updateProject(this.projectId, { status: 'completed', currentPhase: 'completed' });
+        const finalReport = getProject(this.projectId)?.repairReport;
+        const finalStatus = finalReport && (finalReport.status === 'STALLED' || finalReport.status === 'PARTIAL_SUCCESS')
+          ? finalReport.status.toLowerCase() as any
+          : 'completed';
+
+        updateProject(this.projectId, { 
+          status: finalStatus, 
+          currentPhase: 'completed' 
+        });
+        
         this.pushEvent(createEvent({
           type: 'phase-complete',
           phase: 'completed',
           agent: 'manager',
-          message: `Pipeline completed! Generated ${finalState.generatedFiles.length} files.`
+          message: `Pipeline completed with status ${finalStatus.toUpperCase()}! Generated ${finalState.generatedFiles.length} files.`
         }));
 
       } catch (error) {
@@ -680,10 +956,10 @@ export class OCollabro {
 
   private getDefaultArchitecture(_analysis: PromptAnalysis): ArchitectureDesign {
     return {
-      folderStructure: 'src/app',
+      folderStructure: 'apps/web',
       fileList: [
         {
-          path: 'src/app/page.tsx',
+          path: 'apps/web/src/app/page.tsx',
           purpose: 'Main landing page',
           requirements: ['Display welcome message', 'Use Tailwind CSS'],
           dependencies: [],

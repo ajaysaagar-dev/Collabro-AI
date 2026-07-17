@@ -18,5 +18,6 @@
 - debugger: true
 - performance: true
 - devops: true
-- documentation: false
+- documentation: true
 - deployment: false
+- Debugger Agent: true

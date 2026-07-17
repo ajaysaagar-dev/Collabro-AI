@@ -1,0 +1,162 @@
+{
+  "folderStructure": "├── apps/├── domains/├── modules/├── shared/├── services/├── integrations/├── data/├── configs/├── scripts/├── tests/├── deployment/├── docs/└── metadata/",
+  "fileList": [
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout for the application",
+      "requirements": [
+        "Implement Next.js layout",
+        "Use Tailwind CSS"
+      ],
+      "dependencies": [
+        "apps/web/next.config.js",
+        "apps/web/tailwind.config.js"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page for the application",
+      "requirements": [
+        "Implement Next.js page",
+        "Use React hooks"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/calculator/presentation/CalculatorPage.tsx",
+      "purpose": "Calculator page component",
+      "requirements": [
+        "Implement calculator UI",
+        "Use React hooks"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx"
+      ],
+      "estimatedTokens": 800,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/calculator/application/CalculatorService.ts",
+      "purpose": "Calculator service for business logic",
+      "requirements": [
+        "Implement calculator business logic",
+        "Use domain entities"
+      ],
+      "dependencies": [
+        "modules/calculator/domain/CalculatorEntity.ts"
+      ],
+      "estimatedTokens": 700,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/calculator/domain/CalculatorEntity.ts",
+      "purpose": "Calculator entity for business logic",
+      "requirements": [
+        "Implement calculator entity",
+        "Use value objects"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 400,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "shared/utils/inputValidator.ts",
+      "purpose": "Input validator utility",
+      "requirements": [
+        "Implement input validation",
+        "Use regular expressions"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "shared/utils/errorHandler.ts",
+      "purpose": "Error handler utility",
+      "requirements": [
+        "Implement error handling",
+        "Use try-catch blocks"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma schema for database",
+      "requirements": [
+        "Implement Prisma schema",
+        "Use Prisma migrations"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "low",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "configs/next.config.js",
+      "purpose": "Next.js configuration file",
+      "requirements": [
+        "Implement Next.js configuration",
+        "Use environment variables"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "configs/tailwind.config.js",
+      "purpose": "Tailwind CSS configuration file",
+      "requirements": [
+        "Implement Tailwind CSS configuration",
+        "Use theme variables"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    }
+  ],
+  "apiEndpoints": [
+    {
+      "method": "GET",
+      "path": "/api/calculator",
+      "description": "Get calculator state",
+      "requestBody": "{}",
+      "responseBody": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/calculator",
+      "description": "Update calculator state",
+      "requestBody": "{}",
+      "responseBody": "{}"
+    }
+  ],
+  "databaseSchema": "model Calculator {\n  id       String   @id @default(cuid())\n  value    String\n  operator String\n}\n",
+  "envVariables": [
+    "DATABASE_URL",
+    "NEXTAUTH_SECRET"
+  ],
+  "dependencies": {
+    "next": "^12.2.0",
+    "react": "^18.2.0",
+    "tailwindcss": "^3.0.11",
+    "prisma": "^4.4.0"
+  },
+  "buildConfig": "npm run build && npm run start"
+}

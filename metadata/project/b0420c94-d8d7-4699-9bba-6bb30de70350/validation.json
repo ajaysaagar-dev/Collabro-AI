@@ -1,0 +1,642 @@
+{
+  "timestamp": 1784275100682,
+  "projectId": "b0420c94-d8d7-4699-9bba-6bb30de70350",
+  "stages": [
+    {
+      "name": "Project Structure",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 12
+    },
+    {
+      "name": "Dependencies",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 1435
+    },
+    {
+      "name": "Environment",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        {
+          "stage": "Environment",
+          "file": ".env",
+          "message": "No .env file found. Ensure environment variables are not required for build.",
+          "severity": "warning",
+          "recommendation": "Create a default .env file."
+        }
+      ],
+      "duration": 1
+    },
+    {
+      "name": "Type Check",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 1,
+          "column": 28,
+          "message": "TS2307: Cannot find module 'next-auth/react' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 2,
+          "column": 10,
+          "message": "TS2305: Module '\"next/client\"' has no exported member 'useClient'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 3,
+          "column": 26,
+          "message": "TS2307: Cannot find module '../modules/todo/components/TodoList' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 4,
+          "column": 26,
+          "message": "TS2307: Cannot find module '../modules/todo/components/TodoForm' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 5,
+          "column": 10,
+          "message": "TS2614: Module '\"../app/layout\"' has no exported member 'Layout'. Did you mean to use 'import Layout from \"../app/layout\"' instead?",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/application/todo-service.ts",
+          "line": 3,
+          "column": 22,
+          "message": "TS2307: Cannot find module '../domains/todo/domain' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/application/todo-service.ts",
+          "line": 4,
+          "column": 30,
+          "message": "TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/application/todo-service.ts",
+          "line": 5,
+          "column": 26,
+          "message": "TS2307: Cannot find module 'next-auth' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 3,
+          "column": 30,
+          "message": "TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 20,
+          "column": 48,
+          "message": "TS2339: Property 'json' does not exist on type 'NextApiRequest'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 28,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 31,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 38,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 41,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 47,
+          "column": 22,
+          "message": "TS2339: Property 'params' does not exist on type 'NextApiRequest'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 50,
+          "column": 16,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 52,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 55,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 61,
+          "column": 22,
+          "message": "TS2339: Property 'params' does not exist on type 'NextApiRequest'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 62,
+          "column": 59,
+          "message": "TS2339: Property 'json' does not exist on type 'NextApiRequest'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 72,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 75,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 81,
+          "column": 22,
+          "message": "TS2339: Property 'params' does not exist on type 'NextApiRequest'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 83,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/infrastructure/todo-repository.ts",
+          "line": 86,
+          "column": 14,
+          "message": "TS2693: 'NextApiResponse' only refers to a type, but is being used as a value here.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "line": 2,
+          "column": 42,
+          "message": "TS2307: Cannot find module 'react-query' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "line": 3,
+          "column": 10,
+          "message": "TS2305: Module '\"next/client\"' has no exported member 'useClient'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "line": 4,
+          "column": 28,
+          "message": "TS2307: Cannot find module '../types/todo-filter' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "line": 5,
+          "column": 22,
+          "message": "TS2307: Cannot find module '../types/todo' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "line": 6,
+          "column": 29,
+          "message": "TS2307: Cannot find module '../types/search-query' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "line": 7,
+          "column": 29,
+          "message": "TS2307: Cannot find module 'use-debounce' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "line": 27,
+          "column": 62,
+          "message": "TS2339: Property 'search' does not exist on type '(searchQuery: SearchQuery) => void'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "line": 92,
+          "column": 31,
+          "message": "TS2339: Property 'search' does not exist on type '(searchQuery: SearchQuery) => void'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "line": 96,
+          "column": 21,
+          "message": "TS7006: Parameter 'todo' implicitly has an 'any' type.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        }
+      ],
+      "warnings": [],
+      "duration": 905
+    },
+    {
+      "name": "Lint",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Lint",
+          "file": "eslintConfig",
+          "message": "Eslint verification failed: \nnpm notice run project-b0420c94-d8d7-4699-9bba-6bb30de70350-root@0.1.0 lint\nnpm notice run npm run lint --workspace=apps/web\nnpm notice run project-b0420c94-d8d7-4699-9bba-6bb30de70350@0.1.0 lint\nnpm notice run next lint\nInvalid project directory provided, no such directory: /home/ajaysaagar/Documents/Projects/Collabro-AI/collabro-ai/workspace/project/b0420c94-d8d7-4699-9bba-6bb30de70350/apps/web/lint\nnpm error Lifecycle script `lint` failed with error:\nnpm error code 1\nnpm error path /home/aja",
+          "severity": "error",
+          "recommendation": "Fix linting issues using eslint --fix or manually adjusting rules."
+        }
+      ],
+      "warnings": [],
+      "duration": 302
+    },
+    {
+      "name": "Formatting",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0
+    },
+    {
+      "name": "Static Analysis",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/.next/types/validator.ts",
+          "message": "Broken relative import target: \"./routes.js\" in file apps/web/.next/types/validator.ts. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken relative import target: \"../modules/todo/components/TodoList\" in file apps/web/src/app/page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/src/app/page.tsx",
+          "message": "Broken relative import target: \"../modules/todo/components/TodoForm\" in file apps/web/src/app/page.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/application/todo-service.ts",
+          "message": "Broken relative import target: \"../domains/todo/domain\" in file modules/todo/application/todo-service.ts. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "message": "Broken relative import target: \"../types/todo-filter\" in file modules/todo/presentation/todo-list.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "message": "Broken relative import target: \"../types/todo\" in file modules/todo/presentation/todo-list.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/todo/presentation/todo-list.tsx",
+          "message": "Broken relative import target: \"../types/search-query\" in file modules/todo/presentation/todo-list.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        }
+      ],
+      "warnings": [],
+      "duration": 12
+    },
+    {
+      "name": "Build",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Build",
+          "file": "Build bundle",
+          "message": "NextJS build execution failed: ▲ Next.js 16.2.10 (Turbopack)\n\n  Creating an optimized production build ...\n\nnpm notice run project-b0420c94-d8d7-4699-9bba-6bb30de70350-root@0.1.0 build\nnpm notice run npm run build --workspace=apps/web\nnpm notice run project-b0420c94-d8d7-4699-9bba-6bb30de70350@0.1.0 build\nnpm notice run next build\n⚠ You are using a non-standard \"NODE_ENV\" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env\n⚠ Warning: Next.js inferred your workspace root, but it may not be correct.\n We detected multiple lockfiles and selected the directory of /home/ajaysaagar/Documents/Projects/Collabro-AI/collabro-ai/package-lock.json as the root directory.\n To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.\n   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more informati",
+          "severity": "error",
+          "recommendation": "Check build error log, fix SSR hydration mismatches, client component imports, or syntax errors."
+        }
+      ],
+      "warnings": [],
+      "duration": 3275
+    },
+    {
+      "name": "Dev Server",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Dev Server",
+          "file": "next dev",
+          "message": "Dev server startup failed: Error: listen EADDRINUSE: address already in use :::3000\n    at <unknown> (Error: listen EADDRINUSE: address already in use :::3000)\n    at new Promise (<anonymous>) {\n  code: 'EADDRINUSE',\n  errno: -98,\n  syscall: 'listen',\n  address: '::',\n  port: 3000\n}\n",
+          "severity": "error",
+          "recommendation": "Check for port conflicts or startup runtime errors."
+        },
+        {
+          "stage": "Dev Server",
+          "file": "apps/web/src/app/layout.tsx",
+          "message": "⨯ Failed to start server",
+          "severity": "error",
+          "recommendation": "Check module path resolution, tsconfig aliases, or package.json dependencies."
+        },
+        {
+          "stage": "Dev Server",
+          "file": "apps/web/src/app/layout.tsx",
+          "message": "Error: listen EADDRINUSE: address already in use :::3000\n    at <unknown> (Error: listen EADDRINUSE: address already in use :::3000)\n    at new Promise (<anonymous>) {\n  code: 'EADDRINUSE',\n  errno: -98,\n  syscall: 'listen',\n  address: '::',\n  port: 3000\n}",
+          "severity": "error",
+          "recommendation": "Check module path resolution, tsconfig aliases, or package.json dependencies."
+        }
+      ],
+      "warnings": [],
+      "duration": 434
+    },
+    {
+      "name": "Runtime Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0
+    },
+    {
+      "name": "Browser Automation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        {
+          "stage": "Browser Automation",
+          "file": "__tests__/selenium-e2e.test.ts",
+          "message": "Selenium execution skipped: WebDriver / local browser is not configured or reachable in this system environment. Fallback browser compilation smoke test succeeded.",
+          "severity": "warning",
+          "recommendation": "To run Selenium E2E tests, ensure Chrome and ChromeDriver are installed on your host system."
+        }
+      ],
+      "duration": 657
+    },
+    {
+      "name": "Route Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Route Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "API Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "API Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Database Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Database Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "File Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "File Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Unit Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Unit Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Integration Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Integration Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Security Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 1,
+      "output": "Security Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Performance Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Performance Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Accessibility Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Accessibility Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "SEO Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "SEO Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Docker Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Docker Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "CI Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "CI Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Git Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Git Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "AI Architecture Review",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "AI Architecture Review completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Production Readiness",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Production Readiness completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Observability",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Observability completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Deployment Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Deployment Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Autonomous Self-Healing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Autonomous Self-Healing completed with code 0. Validated successfully."
+    }
+  ],
+  "totalErrors": 46,
+  "totalWarnings": 2,
+  "passed": false,
+  "duration": 7034
+}

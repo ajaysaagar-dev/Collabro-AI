@@ -1,0 +1,168 @@
+{
+  "fileSpecs": [
+    {
+      "path": "shared/types/button.ts",
+      "purpose": "Button type definitions for TypeScript interfaces and types used across the application",
+      "requirements": [
+        "Define ButtonProps interface with color, onClick, and disabled properties",
+        "Implement accessibility features for screen readers and keyboard navigation",
+        "Include ARIA attributes for enhanced accessibility compliance"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "critical",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma database schema defining Button model for storing button color data",
+      "requirements": [
+        "Define Button model with id and color fields",
+        "Implement CRUD operations for managing button color data",
+        "Configure database connection and provider settings"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "configs/next.config.js",
+      "purpose": "Next.js application configuration with performance and build optimizations",
+      "requirements": [
+        "Implement performance optimization for large-scale button interactions",
+        "Configure TypeScript and ESLint settings",
+        "Set up image optimization and asset handling"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "critical",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "shared/utils/errorHandler.ts",
+      "purpose": "Centralized error handling utility for catching and processing application errors",
+      "requirements": [
+        "Implement security measures to prevent unauthorized access",
+        "Create error logging and reporting functionality",
+        "Handle both synchronous and asynchronous errors"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "services/auth.ts",
+      "purpose": "Authentication service handling user authentication and authorization flows",
+      "requirements": [
+        "Implement authentication and authorization flows for user roles",
+        "Integrate with NextAuth.js for session management",
+        "Provide token validation and refresh mechanisms"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 400,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/button/domain/Button.ts",
+      "purpose": "Button domain entity containing business logic and validation rules for button operations",
+      "requirements": [
+        "Implement error handling for button click events",
+        "Define button state management logic",
+        "Validate button color values against allowed palette"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "modules/button/application/ButtonCommand.ts",
+      "purpose": "Button command handler implementing input validation and business logic for button color changes",
+      "requirements": [
+        "Implement input validation for button color changes",
+        "Coordinate between domain layer and presentation layer",
+        "Handle command execution and error propagation"
+      ],
+      "dependencies": [
+        "modules/button/domain/Button.ts"
+      ],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/button/presentation/Button.tsx",
+      "purpose": "Interactive button React component with animation effects and color customization",
+      "requirements": [
+        "Implement button animation effects on hover and click",
+        "Support color palette customization for users",
+        "Implement button hover effects and visual feedback"
+      ],
+      "dependencies": [
+        "modules/button/application/ButtonCommand.ts",
+        "shared/types/button.ts"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page component for the web application with interactive button implementation",
+      "requirements": [
+        "Implement interactive button component",
+        "Handle color change on click events",
+        "Manage button color state using React hooks"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx",
+        "modules/button/presentation/Button.tsx"
+      ],
+      "estimatedTokens": 800,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout component providing application structure and responsive design",
+      "requirements": [
+        "Implement responsive design for various screen sizes and devices",
+        "Configure global CSS and typography settings",
+        "Set up navigation and routing structure"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    }
+  ],
+  "dependencyGraph": {
+    "shared/types/button.ts": [],
+    "data/prisma/schema.prisma": [],
+    "configs/next.config.js": [],
+    "shared/utils/errorHandler.ts": [],
+    "services/auth.ts": [],
+    "modules/button/domain/Button.ts": [],
+    "modules/button/application/ButtonCommand.ts": [
+      "modules/button/domain/Button.ts"
+    ],
+    "modules/button/presentation/Button.tsx": [
+      "modules/button/application/ButtonCommand.ts",
+      "shared/types/button.ts"
+    ],
+    "apps/web/src/app/page.tsx": [
+      "apps/web/src/app/layout.tsx",
+      "modules/button/presentation/Button.tsx"
+    ],
+    "apps/web/src/app/layout.tsx": [
+      "apps/web/src/app/page.tsx"
+    ]
+  },
+  "totalFiles": 10,
+  "estimatedTotalTokens": 3700
+}

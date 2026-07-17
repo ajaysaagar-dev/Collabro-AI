@@ -1,0 +1,482 @@
+{
+  "timestamp": 1784272001997,
+  "projectId": "749600fe-ac85-44f9-8993-6efc9927c9a6",
+  "stages": [
+    {
+      "name": "Project Structure",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 14
+    },
+    {
+      "name": "Dependencies",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 1542
+    },
+    {
+      "name": "Environment",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        {
+          "stage": "Environment",
+          "file": ".env",
+          "message": "No .env file found. Ensure environment variables are not required for build.",
+          "severity": "warning",
+          "recommendation": "Create a default .env file."
+        }
+      ],
+      "duration": 1
+    },
+    {
+      "name": "Type Check",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/layout.tsx",
+          "line": 1,
+          "column": 34,
+          "message": "TS2307: Cannot find module 'modules/theme/presentation/theme-toggle-button' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/layout.tsx",
+          "line": 2,
+          "column": 26,
+          "message": "TS2307: Cannot find module 'shared/utils/theme' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/layout.tsx",
+          "line": 3,
+          "column": 27,
+          "message": "TS2307: Cannot find module 'next/app/client' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/layout.tsx",
+          "line": 4,
+          "column": 27,
+          "message": "TS2307: Cannot find module 'apps/web/src/app/page' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/layout.tsx",
+          "line": 10,
+          "column": 29,
+          "message": "TS2304: Cannot find name 'useCallback'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 2,
+          "column": 29,
+          "message": "TS2307: Cannot find module 'modules/theme/presentation/theme-toggle-button' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 3,
+          "column": 44,
+          "message": "TS2307: Cannot find module 'shared/utils/theme' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 4,
+          "column": 20,
+          "message": "TS2307: Cannot find module 'apps/web/src/app/layout' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "apps/web/src/app/page.tsx",
+          "line": 10,
+          "column": 29,
+          "message": "TS2304: Cannot find name 'useCallback'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/application/theme-toggle-button-commands.ts",
+          "line": 3,
+          "column": 10,
+          "message": "TS2724: '\"../domain/theme-toggle-button-aggregate\"' has no exported member named 'ThemeToggleButtonAggregate'. Did you mean 'ThemeToggleAggregate'?",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/application/theme-toggle-button-commands.ts",
+          "line": 5,
+          "column": 30,
+          "message": "TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/application/theme-toggle-button-commands.ts",
+          "line": 25,
+          "column": 26,
+          "message": "TS2339: Property 'json' does not exist on type 'NextApiRequest'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/domain/theme-toggle-button-aggregate.ts",
+          "line": 151,
+          "column": 15,
+          "message": "TS2484: Export declaration conflicts with exported declaration of 'ThemePreference'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/domain/theme-toggle-button-aggregate.ts",
+          "line": 151,
+          "column": 32,
+          "message": "TS2484: Export declaration conflicts with exported declaration of 'ThemeToggleState'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/domain/theme-toggle-button-aggregate.ts",
+          "line": 151,
+          "column": 50,
+          "message": "TS2484: Export declaration conflicts with exported declaration of 'ThemeStorage'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/domain/theme-toggle-button-aggregate.ts",
+          "line": 151,
+          "column": 64,
+          "message": "TS2484: Export declaration conflicts with exported declaration of 'ThemeValidator'.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/presentation/theme-toggle-button.tsx",
+          "line": 1,
+          "column": 32,
+          "message": "TS2307: Cannot find module '../theme/application/theme-toggle-button-commands' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/presentation/theme-toggle-button.tsx",
+          "line": 2,
+          "column": 40,
+          "message": "TS2307: Cannot find module '../theme/application/theme-toggle-button-commands' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "modules/theme/presentation/theme-toggle-button.tsx",
+          "line": 3,
+          "column": 23,
+          "message": "TS2307: Cannot find module '../shared/utils/theme' or its corresponding type declarations.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        },
+        {
+          "stage": "Type Check",
+          "file": "shared/utils/theme.ts",
+          "line": 29,
+          "column": 15,
+          "message": "TS7006: Parameter 'prevTheme' implicitly has an 'any' type.",
+          "severity": "error",
+          "recommendation": "Fix TypeScript compilation issue."
+        }
+      ],
+      "warnings": [],
+      "duration": 908
+    },
+    {
+      "name": "Lint",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Lint",
+          "file": "eslintConfig",
+          "message": "Eslint verification failed: \nnpm notice run project-749600fe-ac85-44f9-8993-6efc9927c9a6-root@0.1.0 lint\nnpm notice run npm run lint --workspace=apps/web\nnpm notice run project-749600fe-ac85-44f9-8993-6efc9927c9a6@0.1.0 lint\nnpm notice run next lint\nInvalid project directory provided, no such directory: /home/ajaysaagar/Documents/Projects/Collabro-AI/collabro-ai/workspace/project/749600fe-ac85-44f9-8993-6efc9927c9a6/apps/web/lint\nnpm error Lifecycle script `lint` failed with error:\nnpm error code 1\nnpm error path /home/aja",
+          "severity": "error",
+          "recommendation": "Fix linting issues using eslint --fix or manually adjusting rules."
+        }
+      ],
+      "warnings": [],
+      "duration": 330
+    },
+    {
+      "name": "Formatting",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 1
+    },
+    {
+      "name": "Static Analysis",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Static Analysis",
+          "file": "apps/web/.next/types/validator.ts",
+          "message": "Broken relative import target: \"./routes.js\" in file apps/web/.next/types/validator.ts. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/theme/presentation/theme-toggle-button.tsx",
+          "message": "Broken relative import target: \"../theme/application/theme-toggle-button-commands\" in file modules/theme/presentation/theme-toggle-button.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/theme/presentation/theme-toggle-button.tsx",
+          "message": "Broken relative import target: \"../theme/application/theme-toggle-button-commands\" in file modules/theme/presentation/theme-toggle-button.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        },
+        {
+          "stage": "Static Analysis",
+          "file": "modules/theme/presentation/theme-toggle-button.tsx",
+          "message": "Broken relative import target: \"../shared/utils/theme\" in file modules/theme/presentation/theme-toggle-button.tsx. Target file does not exist.",
+          "severity": "error",
+          "recommendation": "Check path spelling and adjust imports."
+        }
+      ],
+      "warnings": [],
+      "duration": 9
+    },
+    {
+      "name": "Build",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Build",
+          "file": "Build bundle",
+          "message": "NextJS build execution failed: ▲ Next.js 16.2.10 (Turbopack)\n\n  Creating an optimized production build ...\n\nnpm notice run project-749600fe-ac85-44f9-8993-6efc9927c9a6-root@0.1.0 build\nnpm notice run npm run build --workspace=apps/web\nnpm notice run project-749600fe-ac85-44f9-8993-6efc9927c9a6@0.1.0 build\nnpm notice run next build\n⚠ You are using a non-standard \"NODE_ENV\" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env\n⚠ Warning: Next.js inferred your workspace root, but it may not be correct.\n We detected multiple lockfiles and selected the directory of /home/ajaysaagar/Documents/Projects/Collabro-AI/collabro-ai/package-lock.json as the root directory.\n To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.\n   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more informati",
+          "severity": "error",
+          "recommendation": "Check build error log, fix SSR hydration mismatches, client component imports, or syntax errors."
+        }
+      ],
+      "warnings": [],
+      "duration": 2239
+    },
+    {
+      "name": "Dev Server",
+      "status": "fail",
+      "errors": [
+        {
+          "stage": "Dev Server",
+          "file": "next dev",
+          "message": "Dev server startup failed: Error: listen EADDRINUSE: address already in use :::3000\n    at <unknown> (Error: listen EADDRINUSE: address already in use :::3000)\n    at new Promise (<anonymous>) {\n  code: 'EADDRINUSE',\n  errno: -98,\n  syscall: 'listen',\n  address: '::',\n  port: 3000\n}\n",
+          "severity": "error",
+          "recommendation": "Check for port conflicts or startup runtime errors."
+        }
+      ],
+      "warnings": [],
+      "duration": 489
+    },
+    {
+      "name": "Runtime Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0
+    },
+    {
+      "name": "Browser Automation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Browser Automation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Route Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Route Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "API Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "API Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Database Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Database Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "File Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "File Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Unit Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Unit Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Integration Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Integration Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "E2E Testing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "E2E Testing completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Security Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Security Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Performance Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Performance Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Accessibility Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Accessibility Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "SEO Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "SEO Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Docker Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Docker Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "CI Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "CI Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Git Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Git Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "AI Architecture Review",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "AI Architecture Review completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Production Readiness",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Production Readiness completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Observability",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Observability completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Deployment Validation",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Deployment Validation completed with code 0. Validated successfully."
+    },
+    {
+      "name": "Autonomous Self-Healing",
+      "status": "pass",
+      "errors": [],
+      "warnings": [],
+      "duration": 0,
+      "output": "Autonomous Self-Healing completed with code 0. Validated successfully."
+    }
+  ],
+  "totalErrors": 27,
+  "totalWarnings": 1,
+  "passed": false,
+  "duration": 5534
+}

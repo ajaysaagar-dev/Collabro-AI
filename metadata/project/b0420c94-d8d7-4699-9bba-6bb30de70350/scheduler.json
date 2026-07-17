@@ -1,0 +1,278 @@
+{
+  "tasks": [
+    {
+      "id": "task-0-configs-next-config-js",
+      "fileSpec": {
+        "path": "configs/next.config.js",
+        "purpose": "Next.js configuration file for the web application",
+        "requirements": [
+          "Configure Next.js build settings",
+          "Enable responsive design support",
+          "Set up image optimization",
+          "Configure routing behavior"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 300,
+        "priority": "critical",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-1-data-prisma-schema-prisma",
+      "fileSpec": {
+        "path": "data/prisma/schema.prisma",
+        "purpose": "Prisma schema defining the Todo model and database structure",
+        "requirements": [
+          "Define Todo model with id, title, completed, dueDate, priority fields",
+          "Configure PostgreSQL as database provider",
+          "Set up CUID primary keys",
+          "Define relationships and constraints"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 200,
+        "priority": "critical",
+        "assignedAgent": "database-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-2-domains-todo-domain-ts",
+      "fileSpec": {
+        "path": "domains/todo/domain.ts",
+        "purpose": "Pure business rules for todo management including validation and domain logic",
+        "requirements": [
+          "Create todos with validation",
+          "Read todos with filtering capabilities",
+          "Update todos with change tracking",
+          "Delete todos with soft delete support",
+          "Define Todo entity interface"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 300,
+        "priority": "critical",
+        "assignedAgent": "database-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-3-modules-todo-infrastructure-todo-repository-ts",
+      "fileSpec": {
+        "path": "modules/todo/infrastructure/todo-repository.ts",
+        "purpose": "Data access layer for todos using Prisma client",
+        "requirements": [
+          "Implement CRUD operations for Todo entities",
+          "Use Prisma client for database queries",
+          "Handle database connection and errors",
+          "Map between domain and database models"
+        ],
+        "dependencies": [
+          "data/prisma/schema.prisma"
+        ],
+        "estimatedTokens": 400,
+        "priority": "high",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-1-data-prisma-schema-prisma"
+      ]
+    },
+    {
+      "id": "task-4-modules-todo-application-todo-service-ts",
+      "fileSpec": {
+        "path": "modules/todo/application/todo-service.ts",
+        "purpose": "Application service orchestrating todo business logic and data operations",
+        "requirements": [
+          "Coordinate between domain and infrastructure layers",
+          "Implement transaction management",
+          "Handle business rule validation",
+          "Provide unified API for todo operations"
+        ],
+        "dependencies": [
+          "domains/todo/domain.ts",
+          "modules/todo/infrastructure/todo-repository.ts"
+        ],
+        "estimatedTokens": 500,
+        "priority": "high",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-2-domains-todo-domain-ts",
+        "task-3-modules-todo-infrastructure-todo-repository-ts"
+      ]
+    },
+    {
+      "id": "task-5-services-auth-service-ts",
+      "fileSpec": {
+        "path": "services/auth-service.ts",
+        "purpose": "Authentication service for user management using NextAuth",
+        "requirements": [
+          "Configure NextAuth providers",
+          "Handle user sessions",
+          "Implement JWT tokens",
+          "Secure API routes"
+        ],
+        "dependencies": [
+          "next-auth"
+        ],
+        "estimatedTokens": 300,
+        "priority": "high",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-6-shared-styles-globals-css",
+      "fileSpec": {
+        "path": "shared/styles/globals.css",
+        "purpose": "Global CSS styles for the application including reset and base styles",
+        "requirements": [
+          "CSS reset for consistent styling",
+          "Base typography styles",
+          "Responsive utility classes",
+          "Custom property definitions"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 150,
+        "priority": "medium",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-7-apps-web-src-app-layout-tsx",
+      "fileSpec": {
+        "path": "apps/web/src/app/layout.tsx",
+        "purpose": "Root layout component for the Next.js application",
+        "requirements": [
+          "Configure HTML structure",
+          "Set up global CSS imports",
+          "Implement responsive design",
+          "Provide session provider for auth",
+          "Configure font settings"
+        ],
+        "dependencies": [
+          "shared/styles/globals.css"
+        ],
+        "estimatedTokens": 600,
+        "priority": "high",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-6-shared-styles-globals-css"
+      ]
+    },
+    {
+      "id": "task-8-apps-web-src-app-page-tsx",
+      "fileSpec": {
+        "path": "apps/web/src/app/page.tsx",
+        "purpose": "Root page component rendering the main application view",
+        "requirements": [
+          "Render main application layout",
+          "Integrate todo list component",
+          "Handle page-level state",
+          "Implement responsive design"
+        ],
+        "dependencies": [
+          "apps/web/src/app/layout.tsx",
+          "modules/todo/presentation/todo-list.tsx"
+        ],
+        "estimatedTokens": 500,
+        "priority": "high",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-7-apps-web-src-app-layout-tsx",
+        "task-9-modules-todo-presentation-todo-list-tsx"
+      ]
+    },
+    {
+      "id": "task-9-modules-todo-presentation-todo-list-tsx",
+      "fileSpec": {
+        "path": "modules/todo/presentation/todo-list.tsx",
+        "purpose": "React component for displaying and managing todo list with filtering and search",
+        "requirements": [
+          "Display list of todos",
+          "Implement filter controls (all/active/completed)",
+          "Add search functionality",
+          "Handle todo item rendering",
+          "Manage local component state"
+        ],
+        "dependencies": [
+          "modules/todo/application/todo-service.ts"
+        ],
+        "estimatedTokens": 700,
+        "priority": "high",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-4-modules-todo-application-todo-service-ts"
+      ]
+    },
+    {
+      "id": "task-10-scripts-build-sh",
+      "fileSpec": {
+        "path": "scripts/build.sh",
+        "purpose": "Build script for compiling and deploying the application",
+        "requirements": [
+          "Run TypeScript compilation",
+          "Build production assets",
+          "Run Prisma migrations",
+          "Optimize for production"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 100,
+        "priority": "low",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    }
+  ],
+  "executionOrder": [
+    "task-0-configs-next-config-js",
+    "task-1-data-prisma-schema-prisma",
+    "task-2-domains-todo-domain-ts",
+    "task-5-services-auth-service-ts",
+    "task-3-modules-todo-infrastructure-todo-repository-ts",
+    "task-4-modules-todo-application-todo-service-ts",
+    "task-9-modules-todo-presentation-todo-list-tsx",
+    "task-6-shared-styles-globals-css",
+    "task-7-apps-web-src-app-layout-tsx",
+    "task-8-apps-web-src-app-page-tsx",
+    "task-10-scripts-build-sh"
+  ],
+  "parallelGroups": [
+    [
+      "task-0-configs-next-config-js",
+      "task-1-data-prisma-schema-prisma",
+      "task-2-domains-todo-domain-ts",
+      "task-5-services-auth-service-ts",
+      "task-6-shared-styles-globals-css",
+      "task-10-scripts-build-sh"
+    ],
+    [
+      "task-3-modules-todo-infrastructure-todo-repository-ts",
+      "task-7-apps-web-src-app-layout-tsx"
+    ],
+    [
+      "task-4-modules-todo-application-todo-service-ts"
+    ],
+    [
+      "task-9-modules-todo-presentation-todo-list-tsx"
+    ],
+    [
+      "task-8-apps-web-src-app-page-tsx"
+    ]
+  ]
+}

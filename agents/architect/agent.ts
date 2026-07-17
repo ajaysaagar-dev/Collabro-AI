@@ -44,10 +44,29 @@ You will receive a project analysis and validated requirements. Design the full 
 }
 
 Architecture Guidelines:
-- Use Next.js App Router (app/ directory) for Next.js projects
-- Place the root layout exactly at 'src/app/layout.tsx' and the root page exactly at 'src/app/page.tsx'. Do NOT use subfolders like 'src/app/layout/Layout.tsx' or 'src/app/page/_app.tsx'.
-- Do NOT use Pages Router files (like '_app.tsx', '_document.tsx', 'index.tsx') inside an App Router setup.
-- Organize by feature/domain, not by file type
+- MUST strictly follow the Universal Software Project Architecture (USPA) specification.
+- The root project directory structure must include:
+  ├── apps/ (e.g. apps/web/ for Next.js web application files like apps/web/src/app/layout.tsx, apps/web/src/app/page.tsx, apps/web/next.config.js, apps/web/tailwind.config.js, etc.)
+  ├── domains/ (Heart of the application - purely business rules/logic, absolutely NO framework or DB logic)
+  ├── modules/ (Features as self-contained modules under modules/<feature>/ containing: presentation/, application/, domain/, infrastructure/, tests/)
+  ├── shared/ (Reusable types, utils, helpers, components)
+  ├── services/ (Cross-domain services like notification, payment)
+  ├── integrations/ (Third-party API integrations like stripe, openai)
+  ├── data/ (Schemas, migrations, seed data, database files)
+  ├── configs/ (Application configurations, database config, environment settings, NO hardcoded values)
+  ├── scripts/ (Build, deploy, migration scripts)
+  ├── tests/ (Global unit, integration, and e2e tests)
+  ├── deployment/ (Docker, kubernetes, nginx, CI/CD)
+  ├── docs/ (Architecture, API, workflow documentation)
+  └── metadata/ (project.json, architecture.json, routes.json)
+- For Next.js projects inside apps/web/, place the root layout at 'apps/web/src/app/layout.tsx' and root page at 'apps/web/src/app/page.tsx'. Do NOT use pages router.
+- Organize features strictly under modules/ with:
+  - modules/<feature>/presentation/ (UI pages, components, layouts, hooks)
+  - modules/<feature>/application/ (Use cases, commands, queries, DTOs, validators)
+  - modules/<feature>/domain/ (Entities, value objects, aggregate interfaces, pure business rules)
+  - modules/<feature>/infrastructure/ (Repositories, cache, db adapters)
+- Dependencies always point inward: Presentation -> Application -> Domain -> Infrastructure. Pure domain logic (in domains/ and modules/<feature>/domain/) must NEVER import React, Express, Prisma, database libraries, or other framework code.
+- Every external dependency has an adapter. No circular dependencies.
 - Include all necessary config files (tsconfig, eslint, tailwind, etc.)
 - Plan for proper separation of concerns
 - Include middleware, utilities, and shared types

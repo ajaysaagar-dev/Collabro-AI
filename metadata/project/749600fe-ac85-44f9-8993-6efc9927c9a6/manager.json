@@ -1,0 +1,224 @@
+[
+  {
+    "path": "package.json",
+    "content": "{\n  \"name\": \"project-749600fe-ac85-44f9-8993-6efc9927c9a6-root\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"workspaces\": [\n    \"apps/*\",\n    \"domains... [truncated for AI, original length: 456]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "tsconfig.json",
+    "content": "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipL... [truncated for AI, original length: 815]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "README.md",
+    "content": "# COLLABRO AI Universal Software Project\nThis project follows the **Universal Software Project Architecture (USPA)** standard.\n\n## Structure\n- `apps/`... [truncated for AI, original length: 450]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": ".gitignore",
+    "content": "# dependencies\n/node_modules\n/.pnp\n.pnp.js\n\n# testing\n/coverage\n\n# next.js\n/.next/\n/out/\n\n# production\n/build\n\n# debug\nnpm-debug.log*\nyarn-debug.log*\n... [truncated for AI, original length: 257]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "apps/web/package.json",
+    "content": "{\n  \"name\": \"project-749600fe-ac85-44f9-8993-6efc9927c9a6\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\"... [truncated for AI, original length: 976]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "apps/web/tsconfig.json",
+    "content": "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipL... [truncated for AI, original length: 1216]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "apps/web/tailwind.config.js",
+    "content": "/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  content: [\n    \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/components/**/*.{js... [truncated for AI, original length: 480]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "apps/web/postcss.config.js",
+    "content": "module.exports = {\n  plugins: {\n    tailwindcss: {},\n    autoprefixer: {},\n  },\n}\n",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "apps/web/next.config.js",
+    "content": "/** @type {import('next').NextConfig} */\nconst fs = require('fs');\nconst path = require('path');\n\nlet webpackAliases = {};\ntry {\n  const mappingPath =... [truncated for AI, original length: 1279]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "apps/web/jest.config.js",
+    "content": "const nextJest = require('next/jest')\nconst fs = require('fs')\nconst path = require('path')\n\nconst createJestConfig = nextJest({\n  // Provide the path... [truncated for AI, original length: 1540]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "apps/web/jest.setup.js",
+    "content": "import '@testing-library/jest-dom'\n",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "apps/web/src/app/globals.css",
+    "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n:root {\n  --foreground-rgb: 0, 0, 0;\n  --background-start-rgb: 214, 219, 220;\n  --backgrou... [truncated for AI, original length: 538]",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "apps/web/src/app/layout.tsx",
+    "content": "import { ThemeToggleProps } from 'modules/theme/presentation/theme-toggle-button';\nimport { useTheme } from 'shared/utils/theme';\nimport { useClient }... [truncated for AI, original length: 1056]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784271863161
+  },
+  {
+    "path": "apps/web/src/app/page.tsx",
+    "content": "import { useTheme } from 'next-themes';\nimport { ThemeToggle } from 'modules/theme/presentation/theme-toggle-button';\nimport { useTheme as useSharedTh... [truncated for AI, original length: 893]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784271864633
+  },
+  {
+    "path": "domains/README.md",
+    "content": "# Domains\nHeart of the application containing business rules only.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "modules/README.md",
+    "content": "# Modules\nEvery feature becomes a module. Modules own UI, logic, tests, and infra.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "shared/README.md",
+    "content": "# Shared\nReusable types, utilities, and components.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "infrastructure/README.md",
+    "content": "# Infrastructure\nExternal implementations and adapters (database, cache, logger).",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "services/README.md",
+    "content": "# Services\nCross-domain services.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "integrations/README.md",
+    "content": "# Integrations\nThird-party APIs (Stripe, OpenAI, Google).",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "data/README.md",
+    "content": "# Data\nSchemas, migrations, seed, and cache.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "resources/README.md",
+    "content": "# Resources\nLocales, templates, themes.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "assets/README.md",
+    "content": "# Assets\nImages, audio, video.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "configs/README.md",
+    "content": "# Configurations\nNo hardcoded values config files.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "scripts/README.md",
+    "content": "# Scripts\nBuild, deploy, lint, format scripts.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "tests/README.md",
+    "content": "# Tests\nGlobal testing setup.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "deployment/README.md",
+    "content": "# Deployment\nDocker, Kubernetes, Terraform.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "docs/README.md",
+    "content": "# Documentation\nArchitecture and API documentation.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "metadata/README.md",
+    "content": "# Metadata\nproject.json, architecture.json.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "tools/README.md",
+    "content": "# Tools\nCLI tools and helper scripts.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "workspace/README.md",
+    "content": "# Workspace\nExports, artifacts, and temp files.",
+    "agent": "manager",
+    "generatedAt": 1784271697924
+  },
+  {
+    "path": "data/prisma/schema.prisma",
+    "content": "generator client {\n  provider = \"prisma-client-js\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nenum Theme {\n  lig... [truncated for AI, original length: 592]",
+    "agent": "database-dev",
+    "generatedAt": 1784271741467
+  },
+  {
+    "path": "configs/next.config.js",
+    "content": "/** @type {import('next').NextConfig} */\nconst nextConfig = {\n  // Enable React Strict Mode for better error detection\n  reactStrictMode: true,\n  \n  /... [truncated for AI, original length: 921]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784271743562
+  },
+  {
+    "path": "shared/utils/theme.ts",
+    "content": "// shared/utils/theme.ts\n\nimport { useState, useEffect } from 'react';\n\ninterface Theme {\n  mode: 'light' | 'dark';\n}\n\nconst getThemeFromLocalStorage ... [truncated for AI, original length: 1011]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784271747063
+  },
+  {
+    "path": "modules/theme/domain/theme-toggle-button-aggregate.ts",
+    "content": "/**\n * Theme Toggle Button Aggregate Interface\n * \n * Provides a centralized interface for theme management operations including\n * validation, storag... [truncated for AI, original length: 4263]",
+    "agent": "database-dev",
+    "generatedAt": 1784271758074
+  },
+  {
+    "path": "modules/theme/application/theme-toggle-button-commands.ts",
+    "content": "// modules/theme/application/theme-toggle-button-commands.ts\n\nimport { ThemeToggleButtonAggregate } from '../domain/theme-toggle-button-aggregate';\nim... [truncated for AI, original length: 1416]",
+    "agent": "backend-dev",
+    "generatedAt": 1784271804284
+  },
+  {
+    "path": "modules/theme/presentation/theme-toggle-button.tsx",
+    "content": "import { useThemeToggle } from '../theme/application/theme-toggle-button-commands';\nimport { ThemeToggleButtonProps } from '../theme/application/theme... [truncated for AI, original length: 635]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784271806580
+  }
+]

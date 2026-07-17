@@ -1,0 +1,139 @@
+{
+  "folderStructure": "├── apps/\n│   ├── web/\n│   │   ├── src/\n│   │   │   ├── app/\n│   │   │   │   ├── layout.tsx\n│   │   │   ├── page.tsx\n│   │   │   ├── next.config.js\n│   │   │   ├── tailwind.config.js\n│   │   │   └── .../\n│   │   └── .../\n│   └── .../\n├── domains/\n│   └── .../\n├── modules/\n│   ├── theme/\n│   │   ├── presentation/\n│   │   │   └── .../\n│   │   ├── application/\n│   │   │   └── .../\n│   │   ├── domain/\n│   │   │   └── .../\n│   │   ├── infrastructure/\n│   │   │   └── .../\n│   │   └── tests/\n│   │       └── .../\n│   └── .../\n├── shared/\n│   ├── types/\n│   │   └── .../\n│   ├── utils/\n│   │   └── .../\n│   └── .../\n├── services/\n│   └── .../\n├── integrations/\n│   └── .../\n├── data/\n│   └── .../\n├── configs/\n│   └── .../\n├── scripts/\n│   └── .../\n├── tests/\n│   └── .../\n├── deployment/\n│   └── .../\n├── docs/\n│   └── .../\n└── metadata/\n    ├── project.json\n    ├── architecture.json\n    └── routes.json",
+  "fileList": [
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout component for the Next.js application",
+      "requirements": [
+        "error handling and input validation",
+        "responsive design"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page component for the Next.js application",
+      "requirements": [
+        "theme toggle button",
+        "dark mode support",
+        "light mode support"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx"
+      ],
+      "estimatedTokens": 300,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/theme/presentation/ThemeButton.tsx",
+      "purpose": "Theme toggle button component",
+      "requirements": [
+        "theme switching functionality"
+      ],
+      "dependencies": [
+        "modules/theme/application/ThemeService.ts"
+      ],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/theme/application/ThemeService.ts",
+      "purpose": "Theme service for handling theme switching functionality",
+      "requirements": [
+        "theme switching functionality"
+      ],
+      "dependencies": [
+        "modules/theme/domain/Theme.ts"
+      ],
+      "estimatedTokens": 400,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/theme/domain/Theme.ts",
+      "purpose": "Theme entity for handling theme logic",
+      "requirements": [
+        "theme switching functionality"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "shared/utils/theme.ts",
+      "purpose": "Utility functions for handling theme logic",
+      "requirements": [
+        "theme switching functionality"
+      ],
+      "dependencies": [
+        "modules/theme/domain/Theme.ts"
+      ],
+      "estimatedTokens": 150,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma schema for the application database",
+      "requirements": [],
+      "dependencies": [],
+      "estimatedTokens": 50,
+      "priority": "low",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "configs/.env",
+      "purpose": "Environment variables for the application",
+      "requirements": [],
+      "dependencies": [],
+      "estimatedTokens": 20,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "scripts/build.sh",
+      "purpose": "Build script for the application",
+      "requirements": [],
+      "dependencies": [],
+      "estimatedTokens": 50,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    }
+  ],
+  "apiEndpoints": [
+    {
+      "method": "GET",
+      "path": "/api/theme",
+      "description": "Get the current theme",
+      "requestBody": "{}",
+      "responseBody": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/theme",
+      "description": "Switch to a different theme",
+      "requestBody": "{}",
+      "responseBody": "{}"
+    }
+  ],
+  "databaseSchema": "model Theme {\n  id       String   @id @default(cuid())\n  name     String\n  isDark   Boolean\n}\n",
+  "envVariables": [
+    "DATABASE_URL",
+    "NEXTAUTH_SECRET"
+  ],
+  "dependencies": {
+    "next": "^12.2.0",
+    "react": "^18.2.0",
+    "tailwindcss": "^3.2.4",
+    "prisma": "^4.10.0"
+  },
+  "buildConfig": "npm run build && npm run start"
+}

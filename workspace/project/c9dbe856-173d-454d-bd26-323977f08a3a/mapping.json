@@ -1,0 +1,207 @@
+{
+  "projectRoot": ".",
+  "folders": {
+    "apps": "apps",
+    "web": "apps/web",
+    "modules": "modules",
+    "shared": "shared",
+    "domains": "domains",
+    "infrastructure": "infrastructure",
+    "services": "services",
+    "integrations": "integrations"
+  },
+  "aliases": {
+    "@/modules": "modules",
+    "@/shared": "shared",
+    "@/domains": "domains",
+    "@/infrastructure": "infrastructure",
+    "@/services": "services",
+    "@/integrations": "integrations"
+  },
+  "files": {
+    "package.json": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "tsconfig.json": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "README.md": {
+      "agent": "documenter",
+      "generatedAt": 1784273373454
+    },
+    ".gitignore": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "apps/web/package.json": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "apps/web/tsconfig.json": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "apps/web/tailwind.config.js": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "apps/web/postcss.config.js": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "apps/web/next.config.js": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "apps/web/jest.config.js": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "apps/web/jest.setup.js": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "apps/web/src/app/globals.css": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "apps/web/src/app/layout.tsx": {
+      "agent": "frontend-dev",
+      "generatedAt": 1784273100897
+    },
+    "apps/web/src/app/page.tsx": {
+      "agent": "frontend-dev",
+      "generatedAt": 1784273164795
+    },
+    "domains/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "modules/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "shared/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "infrastructure/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "services/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "integrations/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "data/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "resources/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "assets/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "configs/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "scripts/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "tests/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "deployment/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "docs/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "metadata/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "tools/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "workspace/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784272859218
+    },
+    "configs/next.config.js": {
+      "agent": "backend-dev",
+      "generatedAt": 1784273280920
+    },
+    "data/prisma/schema.prisma": {
+      "agent": "database-dev",
+      "generatedAt": 1784273277867
+    },
+    "configs/tailwind.config.js": {
+      "agent": "backend-dev",
+      "generatedAt": 1784273284273
+    },
+    "modules/calculator/domain/CalculatorEntity.ts": {
+      "agent": "backend-dev",
+      "generatedAt": 1784273221626
+    },
+    "shared/utils/errorHandler.ts": {
+      "agent": "backend-dev",
+      "generatedAt": 1784273227668
+    },
+    "shared/utils/inputValidator.ts": {
+      "agent": "backend-dev",
+      "generatedAt": 1784273223367
+    },
+    "modules/calculator/application/CalculatorService.ts": {
+      "agent": "backend-dev",
+      "generatedAt": 1784273177185
+    },
+    "modules/calculator/presentation/CalculatorPage.tsx": {
+      "agent": "frontend-dev",
+      "generatedAt": 1784273168788
+    },
+    "__tests__/app.test.tsx": {
+      "agent": "tester",
+      "generatedAt": 1784273005343
+    },
+    "__tests__/playwright-e2e.test.ts": {
+      "agent": "tester",
+      "generatedAt": 1784273005343
+    },
+    "__tests__/puppeteer-cdp.test.ts": {
+      "agent": "tester",
+      "generatedAt": 1784273005343
+    },
+    "__tests__/lighthouse.test.ts": {
+      "agent": "tester",
+      "generatedAt": 1784273005343
+    },
+    "__tests__/accessibility.test.ts": {
+      "agent": "tester",
+      "generatedAt": 1784273005343
+    },
+    "__tests__/selenium-e2e.test.ts": {
+      "agent": "tester",
+      "generatedAt": 1784273005343
+    },
+    "RUN_INSTRUCTIONS.md": {
+      "agent": "manager",
+      "generatedAt": 1784273373467
+    }
+  }
+}

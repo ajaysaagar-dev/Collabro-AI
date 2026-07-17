@@ -1,0 +1,218 @@
+{
+  "tasks": [
+    {
+      "id": "task-0-data-prisma-schema-prisma",
+      "fileSpec": {
+        "path": "data/prisma/schema.prisma",
+        "purpose": "Prisma schema for the application database defining the Theme model with id, name, and isDark fields",
+        "requirements": [
+          "Define Theme model with id, name, and isDark fields",
+          "Use cuid() for id generation",
+          "Configure database connection"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 50,
+        "priority": "critical",
+        "assignedAgent": "database-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-1-configs--env",
+      "fileSpec": {
+        "path": "configs/.env",
+        "purpose": "Environment variables configuration file containing DATABASE_URL and NEXTAUTH_SECRET for application runtime",
+        "requirements": [
+          "Define DATABASE_URL for database connection",
+          "Define NEXTAUTH_SECRET for authentication",
+          "Configure environment-specific variables"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 20,
+        "priority": "critical",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-2-modules-theme-domain-Theme-ts",
+      "fileSpec": {
+        "path": "modules/theme/domain/Theme.ts",
+        "purpose": "Theme entity defining the theme domain model with properties for id, name, and isDark state",
+        "requirements": [
+          "Define Theme entity interface",
+          "Include id, name, and isDark properties",
+          "Support theme switching functionality"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 100,
+        "priority": "critical",
+        "assignedAgent": "database-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    },
+    {
+      "id": "task-3-shared-utils-theme-ts",
+      "fileSpec": {
+        "path": "shared/utils/theme.ts",
+        "purpose": "Utility functions for handling theme logic including theme switching and storage operations",
+        "requirements": [
+          "Implement theme switching functionality",
+          "Handle localStorage operations for theme persistence",
+          "Provide helper functions for theme management"
+        ],
+        "dependencies": [
+          "modules/theme/domain/Theme.ts"
+        ],
+        "estimatedTokens": 150,
+        "priority": "high",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-2-modules-theme-domain-Theme-ts"
+      ]
+    },
+    {
+      "id": "task-4-modules-theme-application-ThemeService-ts",
+      "fileSpec": {
+        "path": "modules/theme/application/ThemeService.ts",
+        "purpose": "Theme service for handling theme switching functionality with business logic for theme management",
+        "requirements": [
+          "Implement theme switching functionality",
+          "Handle theme state management",
+          "Integrate with Theme entity"
+        ],
+        "dependencies": [
+          "modules/theme/domain/Theme.ts"
+        ],
+        "estimatedTokens": 400,
+        "priority": "high",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-2-modules-theme-domain-Theme-ts"
+      ]
+    },
+    {
+      "id": "task-5-modules-theme-presentation-ThemeButton-tsx",
+      "fileSpec": {
+        "path": "modules/theme/presentation/ThemeButton.tsx",
+        "purpose": "Theme toggle button component for UI theme switching with visual feedback",
+        "requirements": [
+          "Implement theme switching functionality",
+          "Provide visual toggle interface",
+          "Handle click events for theme change"
+        ],
+        "dependencies": [
+          "modules/theme/application/ThemeService.ts"
+        ],
+        "estimatedTokens": 200,
+        "priority": "medium",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-4-modules-theme-application-ThemeService-ts"
+      ]
+    },
+    {
+      "id": "task-6-apps-web-src-app-layout-tsx",
+      "fileSpec": {
+        "path": "apps/web/src/app/layout.tsx",
+        "purpose": "Root layout component for the Next.js application providing the main application structure",
+        "requirements": [
+          "Error handling and input validation",
+          "Responsive design",
+          "Provide application shell structure"
+        ],
+        "dependencies": [
+          "apps/web/src/app/page.tsx"
+        ],
+        "estimatedTokens": 500,
+        "priority": "high",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-7-apps-web-src-app-page-tsx"
+      ]
+    },
+    {
+      "id": "task-7-apps-web-src-app-page-tsx",
+      "fileSpec": {
+        "path": "apps/web/src/app/page.tsx",
+        "purpose": "Root page component for the Next.js application with theme toggle functionality",
+        "requirements": [
+          "Theme toggle button",
+          "Dark mode support",
+          "Light mode support"
+        ],
+        "dependencies": [
+          "apps/web/src/app/layout.tsx",
+          "modules/theme/presentation/ThemeButton.tsx"
+        ],
+        "estimatedTokens": 300,
+        "priority": "high",
+        "assignedAgent": "frontend-dev"
+      },
+      "status": "pending",
+      "dependsOn": [
+        "task-6-apps-web-src-app-layout-tsx",
+        "task-5-modules-theme-presentation-ThemeButton-tsx"
+      ]
+    },
+    {
+      "id": "task-8-scripts-build-sh",
+      "fileSpec": {
+        "path": "scripts/build.sh",
+        "purpose": "Build script for the application handling compilation and deployment preparation",
+        "requirements": [
+          "Build application for production",
+          "Handle build errors",
+          "Prepare deployment artifacts"
+        ],
+        "dependencies": [],
+        "estimatedTokens": 50,
+        "priority": "low",
+        "assignedAgent": "backend-dev"
+      },
+      "status": "pending",
+      "dependsOn": []
+    }
+  ],
+  "executionOrder": [
+    "task-0-data-prisma-schema-prisma",
+    "task-1-configs--env",
+    "task-2-modules-theme-domain-Theme-ts",
+    "task-3-shared-utils-theme-ts",
+    "task-4-modules-theme-application-ThemeService-ts",
+    "task-5-modules-theme-presentation-ThemeButton-tsx",
+    "task-8-scripts-build-sh",
+    "task-6-apps-web-src-app-layout-tsx",
+    "task-7-apps-web-src-app-page-tsx"
+  ],
+  "parallelGroups": [
+    [
+      "task-0-data-prisma-schema-prisma",
+      "task-1-configs--env",
+      "task-2-modules-theme-domain-Theme-ts",
+      "task-8-scripts-build-sh"
+    ],
+    [
+      "task-3-shared-utils-theme-ts",
+      "task-4-modules-theme-application-ThemeService-ts"
+    ],
+    [
+      "task-5-modules-theme-presentation-ThemeButton-tsx"
+    ],
+    [
+      "task-6-apps-web-src-app-layout-tsx",
+      "task-7-apps-web-src-app-page-tsx"
+    ]
+  ]
+}

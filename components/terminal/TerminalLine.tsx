@@ -20,6 +20,7 @@ const AGENT_COLORS: Record<AgentRole, string> = {
   tester: "text-yellow-300",
   documenter: "text-pink-400",
   deployer: "text-green-400",
+  debugger: "text-red-400",
 };
 
 const AGENT_ICONS: Record<AgentRole, string> = {
@@ -35,6 +36,7 @@ const AGENT_ICONS: Record<AgentRole, string> = {
   tester: "🧪",
   documenter: "📝",
   deployer: "🚀",
+  debugger: "🔧",
 };
 
 const EVENT_PREFIXES: Partial<Record<PipelineEventType, { icon: string; color: string }>> = {
@@ -106,7 +108,7 @@ export default function TerminalLine({ event, index }: TerminalLineProps) {
       {/* Message */}
       <span
         className={`
-          flex-1 break-words
+          flex-1 break-words whitespace-pre-wrap
           ${isPhaseEvent ? "text-foreground font-semibold" : ""}
           ${isError ? "text-neon-rose" : ""}
           ${isFileGen ? "text-neon-amber" : ""}

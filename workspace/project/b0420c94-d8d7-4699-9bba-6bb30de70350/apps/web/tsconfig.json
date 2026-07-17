@@ -1,0 +1,64 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@/modules/*": [
+        "../../modules/*"
+      ],
+      "@/shared/*": [
+        "../../shared/*"
+      ],
+      "@/domains/*": [
+        "../../domains/*"
+      ],
+      "@/infrastructure/*": [
+        "../../infrastructure/*"
+      ],
+      "@/services/*": [
+        "../../services/*"
+      ],
+      "@/integrations/*": [
+        "../../integrations/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "../../modules/**/*.ts",
+    "../../modules/**/*.tsx",
+    "../../shared/**/*.ts",
+    "../../shared/**/*.tsx",
+    "../../domains/**/*.ts",
+    "../../domains/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

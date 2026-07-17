@@ -10,7 +10,8 @@ export type AgentRole =
   | 'database-dev'
   | 'tester'
   | 'documenter'
-  | 'deployer';
+  | 'deployer'
+  | 'debugger';
 
 export interface AgentMeta {
   role: AgentRole;
@@ -32,4 +33,5 @@ export const AGENT_REGISTRY: Record<AgentRole, AgentMeta> = {
   'tester':                 { role: 'tester',                 name: 'Testing Agent',                description: 'Generates test suites and coverage reports',      icon: '🧪' },
   'documenter':             { role: 'documenter',             name: 'Documentation Agent',          description: 'Auto-generates project documentation',            icon: '📝' },
   'deployer':               { role: 'deployer',               name: 'Deployment Agent',             description: 'Creates Docker, CI/CD, and deploy configs',       icon: '🚀' },
+  'debugger':               { role: 'debugger',               name: 'Debugger Agent',               description: 'Analyzes and repairs code errors',              icon: '🔧' },
 };

@@ -1,0 +1,156 @@
+{
+  "fileSpecs": [
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma schema for the application database defining the Theme model with id, name, and isDark fields",
+      "requirements": [
+        "Define Theme model with id, name, and isDark fields",
+        "Use cuid() for id generation",
+        "Configure database connection"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 50,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "configs/.env",
+      "purpose": "Environment variables configuration file containing DATABASE_URL and NEXTAUTH_SECRET for application runtime",
+      "requirements": [
+        "Define DATABASE_URL for database connection",
+        "Define NEXTAUTH_SECRET for authentication",
+        "Configure environment-specific variables"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 20,
+      "priority": "critical",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/theme/domain/Theme.ts",
+      "purpose": "Theme entity defining the theme domain model with properties for id, name, and isDark state",
+      "requirements": [
+        "Define Theme entity interface",
+        "Include id, name, and isDark properties",
+        "Support theme switching functionality"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "shared/utils/theme.ts",
+      "purpose": "Utility functions for handling theme logic including theme switching and storage operations",
+      "requirements": [
+        "Implement theme switching functionality",
+        "Handle localStorage operations for theme persistence",
+        "Provide helper functions for theme management"
+      ],
+      "dependencies": [
+        "modules/theme/domain/Theme.ts"
+      ],
+      "estimatedTokens": 150,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/theme/application/ThemeService.ts",
+      "purpose": "Theme service for handling theme switching functionality with business logic for theme management",
+      "requirements": [
+        "Implement theme switching functionality",
+        "Handle theme state management",
+        "Integrate with Theme entity"
+      ],
+      "dependencies": [
+        "modules/theme/domain/Theme.ts"
+      ],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/theme/presentation/ThemeButton.tsx",
+      "purpose": "Theme toggle button component for UI theme switching with visual feedback",
+      "requirements": [
+        "Implement theme switching functionality",
+        "Provide visual toggle interface",
+        "Handle click events for theme change"
+      ],
+      "dependencies": [
+        "modules/theme/application/ThemeService.ts"
+      ],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout component for the Next.js application providing the main application structure",
+      "requirements": [
+        "Error handling and input validation",
+        "Responsive design",
+        "Provide application shell structure"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page component for the Next.js application with theme toggle functionality",
+      "requirements": [
+        "Theme toggle button",
+        "Dark mode support",
+        "Light mode support"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx",
+        "modules/theme/presentation/ThemeButton.tsx"
+      ],
+      "estimatedTokens": 300,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "scripts/build.sh",
+      "purpose": "Build script for the application handling compilation and deployment preparation",
+      "requirements": [
+        "Build application for production",
+        "Handle build errors",
+        "Prepare deployment artifacts"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 50,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    }
+  ],
+  "dependencyGraph": {
+    "data/prisma/schema.prisma": [],
+    "configs/.env": [],
+    "modules/theme/domain/Theme.ts": [],
+    "shared/utils/theme.ts": [
+      "modules/theme/domain/Theme.ts"
+    ],
+    "modules/theme/application/ThemeService.ts": [
+      "modules/theme/domain/Theme.ts"
+    ],
+    "modules/theme/presentation/ThemeButton.tsx": [
+      "modules/theme/application/ThemeService.ts"
+    ],
+    "apps/web/src/app/layout.tsx": [
+      "apps/web/src/app/page.tsx"
+    ],
+    "apps/web/src/app/page.tsx": [
+      "apps/web/src/app/layout.tsx",
+      "modules/theme/presentation/ThemeButton.tsx"
+    ],
+    "scripts/build.sh": []
+  },
+  "totalFiles": 9,
+  "estimatedTotalTokens": 1770
+}

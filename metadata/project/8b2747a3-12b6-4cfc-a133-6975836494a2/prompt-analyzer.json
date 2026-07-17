@@ -1,0 +1,17 @@
+{
+  "projectType": "web-app",
+  "frontend": "React",
+  "backend": "none",
+  "database": "none",
+  "authentication": "none",
+  "features": [
+    "Interactive button component",
+    "Color change on click",
+    "State management for button color"
+  ],
+  "userRoles": [
+    "user"
+  ],
+  "additionalServices": [],
+  "summary": "A simple web application with an interactive button that changes color when clicked. This is a basic frontend implementation with no backend or database requirements."
+}

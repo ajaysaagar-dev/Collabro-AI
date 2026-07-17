@@ -1,0 +1,199 @@
+{
+  "fileSpecs": [
+    {
+      "path": "configs/next.config.js",
+      "purpose": "Next.js configuration file with environment variable handling, module aliases, and build optimizations",
+      "requirements": [
+        "Configure Next.js with TypeScript support",
+        "Set up environment variable validation for DATABASE_URL and NEXTAUTH_SECRET",
+        "Configure module path aliases for @/modules, @/shared, @/domains",
+        "Enable experimental features for app directory",
+        "Configure image domains and security headers"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 350,
+      "priority": "critical",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "configs/tailwind.config.js",
+      "purpose": "Tailwind CSS configuration with custom theme, color palette, and component utilities",
+      "requirements": [
+        "Define custom color palette for calculator UI",
+        "Configure spacing, typography, and border radius scales",
+        "Set up dark mode support with class strategy",
+        "Add custom utilities for calculator button states",
+        "Configure content paths for all module directories"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "critical",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma database schema defining Calculator model with fields for state persistence",
+      "requirements": [
+        "Define Calculator model with id (cuid), value (String), operator (String), and timestamps",
+        "Add indexes for query performance on frequently accessed fields",
+        "Configure PostgreSQL provider with connection pooling",
+        "Set up migration naming convention",
+        "Add seed data for initial calculator state"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 400,
+      "priority": "critical",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "modules/calculator/domain/CalculatorEntity.ts",
+      "purpose": "Core domain entity representing calculator state with business logic encapsulation",
+      "requirements": [
+        "Define CalculatorEntity class with value, operator, and previousValue properties",
+        "Implement value object pattern for immutable state transitions",
+        "Add methods for basic operations: add, subtract, multiply, divide",
+        "Include validation for division by zero and overflow handling",
+        "Export TypeScript interfaces for external consumption"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 450,
+      "priority": "critical",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "shared/utils/inputValidator.ts",
+      "purpose": "Reusable input validation utilities with regex patterns for calculator inputs",
+      "requirements": [
+        "Create validateNumberInput function with regex for numeric strings",
+        "Implement validateOperator function for +, -, *, / operators",
+        "Add sanitizeInput function to prevent XSS",
+        "Export validation result types with success/error discriminated unions",
+        "Include unit test examples in JSDoc comments"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 350,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "shared/utils/errorHandler.ts",
+      "purpose": "Centralized error handling utility with structured error types and logging",
+      "requirements": [
+        "Define AppError class extending Error with statusCode and isOperational properties",
+        "Create handleAsyncError wrapper for async route handlers",
+        "Implement formatErrorResponse for consistent API error format",
+        "Add logging integration with environment-aware log levels",
+        "Export error codes enum for calculator-specific errors"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 350,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/calculator/application/CalculatorService.ts",
+      "purpose": "Application service orchestrating calculator operations with domain entity and validation",
+      "requirements": [
+        "Implement CalculatorService class with executeOperation method",
+        "Integrate CalculatorEntity for state management",
+        "Use inputValidator for request validation",
+        "Apply errorHandler for consistent error responses",
+        "Add getState and resetState methods for API endpoints",
+        "Include dependency injection constructor for testability"
+      ],
+      "dependencies": [
+        "modules/calculator/domain/CalculatorEntity.ts",
+        "shared/utils/inputValidator.ts",
+        "shared/utils/errorHandler.ts"
+      ],
+      "estimatedTokens": 800,
+      "priority": "high",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout component with providers, global styles, and metadata configuration",
+      "requirements": [
+        "Implement Next.js 13+ root layout with html and body tags",
+        "Import global Tailwind CSS styles",
+        "Configure metadata for SEO and Open Graph",
+        "Add font optimization with next/font",
+        "Set up theme provider for dark mode support",
+        "Include error boundary for client-side error handling"
+      ],
+      "dependencies": [
+        "configs/next.config.js",
+        "configs/tailwind.config.js"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Home page redirecting to calculator with server-side rendering",
+      "requirements": [
+        "Implement server component with minimal client-side JS",
+        "Redirect to /calculator route using Next.js navigation",
+        "Add loading skeleton for perceived performance",
+        "Include meta tags for calculator page",
+        "Handle middleware authentication check"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx"
+      ],
+      "estimatedTokens": 400,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/calculator/presentation/CalculatorPage.tsx",
+      "purpose": "Interactive calculator page component with display, keypad, and state management",
+      "requirements": [
+        "Create client component with 'use client' directive",
+        "Implement calculator display showing current value and operator",
+        "Build responsive keypad grid with number and operator buttons",
+        "Integrate CalculatorService via API calls to /api/calculator",
+        "Add keyboard event listeners for desktop input",
+        "Implement loading states and error display",
+        "Use Tailwind CSS for styling with dark mode support",
+        "Add accessibility attributes (aria-labels, roles)"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx",
+        "modules/calculator/application/CalculatorService.ts",
+        "shared/utils/inputValidator.ts"
+      ],
+      "estimatedTokens": 1200,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    }
+  ],
+  "dependencyGraph": {
+    "configs/next.config.js": [],
+    "configs/tailwind.config.js": [],
+    "data/prisma/schema.prisma": [],
+    "modules/calculator/domain/CalculatorEntity.ts": [],
+    "shared/utils/inputValidator.ts": [],
+    "shared/utils/errorHandler.ts": [],
+    "modules/calculator/application/CalculatorService.ts": [
+      "modules/calculator/domain/CalculatorEntity.ts",
+      "shared/utils/inputValidator.ts",
+      "shared/utils/errorHandler.ts"
+    ],
+    "apps/web/src/app/layout.tsx": [
+      "configs/next.config.js",
+      "configs/tailwind.config.js"
+    ],
+    "apps/web/src/app/page.tsx": [
+      "apps/web/src/app/layout.tsx"
+    ],
+    "modules/calculator/presentation/CalculatorPage.tsx": [
+      "apps/web/src/app/page.tsx",
+      "modules/calculator/application/CalculatorService.ts",
+      "shared/utils/inputValidator.ts"
+    ]
+  },
+  "totalFiles": 10,
+  "estimatedTotalTokens": 5200
+}

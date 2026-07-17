@@ -1,0 +1,195 @@
+{
+  "projectRoot": ".",
+  "folders": {
+    "apps": "apps",
+    "web": "apps/web",
+    "modules": "modules",
+    "shared": "shared",
+    "domains": "domains",
+    "infrastructure": "infrastructure",
+    "services": "services",
+    "integrations": "integrations"
+  },
+  "aliases": {
+    "@/modules": "modules",
+    "@/shared": "shared",
+    "@/domains": "domains",
+    "@/infrastructure": "infrastructure",
+    "@/services": "services",
+    "@/integrations": "integrations"
+  },
+  "files": {
+    "package.json": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "tsconfig.json": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "README.md": {
+      "agent": "documenter",
+      "generatedAt": 1784272007980
+    },
+    ".gitignore": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "apps/web/package.json": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "apps/web/tsconfig.json": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "apps/web/tailwind.config.js": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "apps/web/postcss.config.js": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "apps/web/next.config.js": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "apps/web/jest.config.js": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "apps/web/jest.setup.js": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "apps/web/src/app/globals.css": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "apps/web/src/app/layout.tsx": {
+      "agent": "frontend-dev",
+      "generatedAt": 1784271863161
+    },
+    "apps/web/src/app/page.tsx": {
+      "agent": "frontend-dev",
+      "generatedAt": 1784271864633
+    },
+    "domains/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "modules/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "shared/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "infrastructure/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "services/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "integrations/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "data/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "resources/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "assets/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "configs/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "scripts/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "tests/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "deployment/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "docs/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "metadata/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "tools/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "workspace/README.md": {
+      "agent": "manager",
+      "generatedAt": 1784271697924
+    },
+    "data/prisma/schema.prisma": {
+      "agent": "database-dev",
+      "generatedAt": 1784271741467
+    },
+    "configs/next.config.js": {
+      "agent": "frontend-dev",
+      "generatedAt": 1784271743562
+    },
+    "shared/utils/theme.ts": {
+      "agent": "frontend-dev",
+      "generatedAt": 1784271747063
+    },
+    "modules/theme/domain/theme-toggle-button-aggregate.ts": {
+      "agent": "database-dev",
+      "generatedAt": 1784271758074
+    },
+    "modules/theme/application/theme-toggle-button-commands.ts": {
+      "agent": "backend-dev",
+      "generatedAt": 1784271804284
+    },
+    "modules/theme/presentation/theme-toggle-button.tsx": {
+      "agent": "frontend-dev",
+      "generatedAt": 1784271806580
+    },
+    "__tests__/app.test.tsx": {
+      "agent": "tester",
+      "generatedAt": 1784271864637
+    },
+    "__tests__/playwright-e2e.test.ts": {
+      "agent": "tester",
+      "generatedAt": 1784271864637
+    },
+    "__tests__/puppeteer-cdp.test.ts": {
+      "agent": "tester",
+      "generatedAt": 1784271864637
+    },
+    "__tests__/lighthouse.test.ts": {
+      "agent": "tester",
+      "generatedAt": 1784271864637
+    },
+    "__tests__/accessibility.test.ts": {
+      "agent": "tester",
+      "generatedAt": 1784271864637
+    },
+    "RUN_INSTRUCTIONS.md": {
+      "agent": "manager",
+      "generatedAt": 1784272007991
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "folderStructure": "├── apps/├── domains/├── modules/├── shared/├── services/├── integrations/├── data/├── configs/├── scripts/├── tests/├── deployment/├── docs/├── metadata/",
+  "fileList": [
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout for the web application",
+      "requirements": [
+        "Implement responsive design for various screen sizes and devices"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page for the web application",
+      "requirements": [
+        "Implement interactive button component",
+        "Color change on click",
+        "State management for button color"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx",
+        "modules/button/presentation/Button.tsx"
+      ],
+      "estimatedTokens": 800,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/button/presentation/Button.tsx",
+      "purpose": "Interactive button component",
+      "requirements": [
+        "Implement button animation effects",
+        "Color palette customization for users",
+        "Button hover effects"
+      ],
+      "dependencies": [
+        "modules/button/application/ButtonCommand.ts"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/button/application/ButtonCommand.ts",
+      "purpose": "Button command handler",
+      "requirements": [
+        "Implement input validation for button color changes"
+      ],
+      "dependencies": [
+        "modules/button/domain/Button.ts"
+      ],
+      "estimatedTokens": 400,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/button/domain/Button.ts",
+      "purpose": "Button entity",
+      "requirements": [
+        "Implement error handling for button click events"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "shared/utils/errorHandler.ts",
+      "purpose": "Error handling utility",
+      "requirements": [
+        "Implement security measures to prevent unauthorized access"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "shared/types/button.ts",
+      "purpose": "Button type definitions",
+      "requirements": [
+        "Implement accessibility features for screen readers and keyboard navigation"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "services/auth.ts",
+      "purpose": "Authentication service",
+      "requirements": [
+        "Implement authentication and authorization flows for user roles"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 400,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma schema for button color data",
+      "requirements": [
+        "Implement CRUD operations for managing button color data"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "configs/next.config.js",
+      "purpose": "Next.js configuration",
+      "requirements": [
+        "Implement performance optimization for large-scale button interactions"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "scripts/deploy.sh",
+      "purpose": "Deployment script",
+      "requirements": [
+        "Implement deployment and DevOps requirements for continuous integration and delivery"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 200,
+      "priority": "low",
+      "assignedAgent": "backend-dev"
+    }
+  ],
+  "apiEndpoints": [
+    {
+      "method": "GET",
+      "path": "/api/button",
+      "description": "Retrieve button color data",
+      "requestBody": "{}",
+      "responseBody": "Button color data"
+    },
+    {
+      "method": "POST",
+      "path": "/api/button",
+      "description": "Update button color data",
+      "requestBody": "Button color data",
+      "responseBody": "Updated button color data"
+    }
+  ],
+  "databaseSchema": "model Button { id Int @id @default(autoincrement()) color String }",
+  "envVariables": [
+    "DATABASE_URL",
+    "NEXTAUTH_SECRET"
+  ],
+  "dependencies": {
+    "react": "^17.0.2",
+    "next": "^12.0.7",
+    "prisma": "^4.0.0",
+    "typescript": "^4.2.3"
+  },
+  "buildConfig": "npm run build && npm run start"
+}

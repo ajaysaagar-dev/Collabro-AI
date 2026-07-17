@@ -1,0 +1,157 @@
+{
+  "folderStructure": "├── apps/├── domains/├── modules/├── shared/├── services/├── integrations/├── data/├── configs/├── scripts/├── tests/├── deployment/├── docs/└── metadata/",
+  "fileList": [
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "purpose": "Root layout for the application",
+      "requirements": [
+        "Theme toggle button implementation",
+        "Dark mode support",
+        "Light mode support"
+      ],
+      "dependencies": [
+        "apps/web/src/app/page.tsx"
+      ],
+      "estimatedTokens": 500,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "purpose": "Root page for the application",
+      "requirements": [
+        "Theme toggle button implementation",
+        "Dark mode support",
+        "Light mode support",
+        "Page theme switching functionality"
+      ],
+      "dependencies": [
+        "apps/web/src/app/layout.tsx"
+      ],
+      "estimatedTokens": 600,
+      "priority": "high",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/theme/presentation/theme-toggle-button.tsx",
+      "purpose": "Theme toggle button component",
+      "requirements": [
+        "Theme toggle button implementation",
+        "Accessibility requirements for theme toggle button"
+      ],
+      "dependencies": [
+        "modules/theme/application/theme-toggle-button-commands.ts"
+      ],
+      "estimatedTokens": 200,
+      "priority": "medium",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "modules/theme/application/theme-toggle-button-commands.ts",
+      "purpose": "Theme toggle button commands",
+      "requirements": [
+        "Theme toggle button implementation",
+        "Error handling for theme toggle failures"
+      ],
+      "dependencies": [
+        "modules/theme/domain/theme-toggle-button-aggregate.ts"
+      ],
+      "estimatedTokens": 300,
+      "priority": "medium",
+      "assignedAgent": "backend-dev"
+    },
+    {
+      "path": "modules/theme/domain/theme-toggle-button-aggregate.ts",
+      "purpose": "Theme toggle button aggregate interface",
+      "requirements": [
+        "Theme toggle button implementation",
+        "Input validation for theme preference storage"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "shared/utils/theme.ts",
+      "purpose": "Theme utility functions",
+      "requirements": [
+        "Theme toggle button implementation",
+        "Dark mode support",
+        "Light mode support"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "data/prisma/schema.prisma",
+      "purpose": "Prisma schema for the application",
+      "requirements": [
+        "Theme toggle button implementation",
+        "Dark mode support",
+        "Light mode support"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "database-dev"
+    },
+    {
+      "path": "configs/next.config.js",
+      "purpose": "Next.js configuration file",
+      "requirements": [
+        "Theme toggle button implementation",
+        "Dark mode support",
+        "Light mode support"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "frontend-dev"
+    },
+    {
+      "path": "scripts/build.sh",
+      "purpose": "Build script for the application",
+      "requirements": [
+        "Theme toggle button implementation",
+        "Dark mode support",
+        "Light mode support"
+      ],
+      "dependencies": [],
+      "estimatedTokens": 100,
+      "priority": "low",
+      "assignedAgent": "frontend-dev"
+    }
+  ],
+  "apiEndpoints": [
+    {
+      "method": "GET",
+      "path": "/api/theme",
+      "description": "Get the current theme",
+      "requestBody": "",
+      "responseBody": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/theme",
+      "description": "Set the theme",
+      "requestBody": "",
+      "responseBody": ""
+    }
+  ],
+  "databaseSchema": "schema.prisma",
+  "envVariables": [
+    "NEXT_PUBLIC_THEME",
+    "NEXT_PUBLIC_THEME_PREFERENCE"
+  ],
+  "dependencies": {
+    "next": "^12.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "prisma": "^4.5.0",
+    "tailwindcss": "^3.2.4"
+  },
+  "buildConfig": "next build && next export"
+}

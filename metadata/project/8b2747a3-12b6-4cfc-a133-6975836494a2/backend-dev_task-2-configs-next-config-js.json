@@ -1,0 +1,5 @@
+{
+  "path": "configs/next.config.js",
+  "agent": "backend-dev",
+  "size": 250
+}

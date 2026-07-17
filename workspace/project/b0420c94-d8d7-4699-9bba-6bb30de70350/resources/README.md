@@ -1,0 +1,2 @@
+# Resources
+Locales, templates, themes.

@@ -1,0 +1,26 @@
+{
+  "projectType": "web-app",
+  "frontend": "Next.js",
+  "backend": "Next.js API Routes",
+  "database": "Prisma + PostgreSQL",
+  "authentication": "NextAuth.js",
+  "features": [
+    "create todos",
+    "read todos",
+    "update todos",
+    "delete todos",
+    "mark todos as complete",
+    "todo list management",
+    "todo filtering (all/active/completed)",
+    "todo search",
+    "todo categorization/tags",
+    "due dates for todos",
+    "priority levels for todos",
+    "responsive design"
+  ],
+  "userRoles": [
+    "user"
+  ],
+  "additionalServices": [],
+  "summary": "A todo application that allows users to create, manage, and organize their tasks with features like filtering, searching, and categorization. Built with Next.js for the frontend and backend, Prisma with PostgreSQL for data persistence, and NextAuth.js for user authentication."
+}

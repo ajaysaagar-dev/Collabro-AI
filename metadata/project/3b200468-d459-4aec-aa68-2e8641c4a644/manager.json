@@ -1,0 +1,230 @@
+[
+  {
+    "path": "package.json",
+    "content": "{\n  \"name\": \"project-3b200468-d459-4aec-aa68-2e8641c4a644-root\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"workspaces\": [\n    \"apps/*\",\n    \"domains... [truncated for AI, original length: 456]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "tsconfig.json",
+    "content": "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipL... [truncated for AI, original length: 815]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "README.md",
+    "content": "# COLLABRO AI Universal Software Project\nThis project follows the **Universal Software Project Architecture (USPA)** standard.\n\n## Structure\n- `apps/`... [truncated for AI, original length: 450]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": ".gitignore",
+    "content": "# dependencies\n/node_modules\n/.pnp\n.pnp.js\n\n# testing\n/coverage\n\n# next.js\n/.next/\n/out/\n\n# production\n/build\n\n# debug\nnpm-debug.log*\nyarn-debug.log*\n... [truncated for AI, original length: 257]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "apps/web/package.json",
+    "content": "{\n  \"name\": \"project-3b200468-d459-4aec-aa68-2e8641c4a644\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\"... [truncated for AI, original length: 976]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "apps/web/tsconfig.json",
+    "content": "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipL... [truncated for AI, original length: 1216]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "apps/web/tailwind.config.js",
+    "content": "/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  content: [\n    \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/components/**/*.{js... [truncated for AI, original length: 480]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "apps/web/postcss.config.js",
+    "content": "module.exports = {\n  plugins: {\n    tailwindcss: {},\n    autoprefixer: {},\n  },\n}\n",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "apps/web/next.config.js",
+    "content": "/** @type {import('next').NextConfig} */\nconst fs = require('fs');\nconst path = require('path');\n\nlet webpackAliases = {};\ntry {\n  const mappingPath =... [truncated for AI, original length: 1279]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "apps/web/jest.config.js",
+    "content": "const nextJest = require('next/jest')\nconst fs = require('fs')\nconst path = require('path')\n\nconst createJestConfig = nextJest({\n  // Provide the path... [truncated for AI, original length: 1540]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "apps/web/jest.setup.js",
+    "content": "import '@testing-library/jest-dom'\n",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "apps/web/src/app/globals.css",
+    "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n:root {\n  --foreground-rgb: 0, 0, 0;\n  --background-start-rgb: 214, 219, 220;\n  --backgrou... [truncated for AI, original length: 538]",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "apps/web/src/app/layout.tsx",
+    "content": "import './globals.css'\nimport type { Metadata } from 'next'\nimport { ThemeProvider } from '@/modules/theme/presentation/components/theme-provider'\n\nex... [truncated for AI, original length: 722]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784271061595
+  },
+  {
+    "path": "apps/web/src/app/page.tsx",
+    "content": "import { useTheme } from 'next-themes';\nimport { ThemeButton } from 'modules/theme/presentation/ThemeButton';\nimport { Layout } from 'apps/web/src/app... [truncated for AI, original length: 643]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784271061889
+  },
+  {
+    "path": "domains/README.md",
+    "content": "# Domains\nHeart of the application containing business rules only.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "modules/README.md",
+    "content": "# Modules\nEvery feature becomes a module. Modules own UI, logic, tests, and infra.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "shared/README.md",
+    "content": "# Shared\nReusable types, utilities, and components.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "infrastructure/README.md",
+    "content": "# Infrastructure\nExternal implementations and adapters (database, cache, logger).",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "services/README.md",
+    "content": "# Services\nCross-domain services.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "integrations/README.md",
+    "content": "# Integrations\nThird-party APIs (Stripe, OpenAI, Google).",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "data/README.md",
+    "content": "# Data\nSchemas, migrations, seed, and cache.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "resources/README.md",
+    "content": "# Resources\nLocales, templates, themes.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "assets/README.md",
+    "content": "# Assets\nImages, audio, video.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "configs/README.md",
+    "content": "# Configurations\nNo hardcoded values config files.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "scripts/README.md",
+    "content": "# Scripts\nBuild, deploy, lint, format scripts.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "tests/README.md",
+    "content": "# Tests\nGlobal testing setup.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "deployment/README.md",
+    "content": "# Deployment\nDocker, Kubernetes, Terraform.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "docs/README.md",
+    "content": "# Documentation\nArchitecture and API documentation.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "metadata/README.md",
+    "content": "# Metadata\nproject.json, architecture.json.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "tools/README.md",
+    "content": "# Tools\nCLI tools and helper scripts.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "workspace/README.md",
+    "content": "# Workspace\nExports, artifacts, and temp files.",
+    "agent": "manager",
+    "generatedAt": 1784270900634
+  },
+  {
+    "path": "data/prisma/schema.prisma",
+    "content": "generator client {\n  provider = \"prisma-client-js\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Theme {\n  id... [truncated for AI, original length: 217]",
+    "agent": "database-dev",
+    "generatedAt": 1784270939072
+  },
+  {
+    "path": "modules/theme/domain/Theme.ts",
+    "content": "export interface Theme {\n  id: string;\n  name: string;\n  isDark: boolean;\n}\n\nexport type ThemeName = 'light' | 'dark';\n\nexport const LIGHT_THEME: Them... [truncated for AI, original length: 790]",
+    "agent": "database-dev",
+    "generatedAt": 1784270941246
+  },
+  {
+    "path": "scripts/build.sh",
+    "content": "#!/bin/bash\n\n# Build the application\nnpx next build\n\n# Handle build errors\nif [[ $? -ne 0 ]]; then\n  echo \"Build failed. Check logs for details.\"\n  ex... [truncated for AI, original length: 236]",
+    "agent": "backend-dev",
+    "generatedAt": 1784270943016
+  },
+  {
+    "path": "configs/.env",
+    "content": "DATABASE_URL=\"postgresql://user:password@localhost:5432/mydb?schema=public\"\nNEXTAUTH_SECRET=\"your-super-secret-key-min-32-chars-change-in-production\"",
+    "agent": "backend-dev",
+    "generatedAt": 1784270970459
+  },
+  {
+    "path": "shared/utils/theme.ts",
+    "content": "import { Theme } from '@/modules/theme/domain/Theme'\n\nexport type ThemeMode = 'light' | 'dark'\n\nexport const THEME_STORAGE_KEY = 'app-theme'\n\nexport c... [truncated for AI, original length: 1634]",
+    "agent": "backend-dev",
+    "generatedAt": 1784271001281
+  },
+  {
+    "path": "modules/theme/application/ThemeService.ts",
+    "content": "import { Theme } from '../domain/Theme';\n\nexport type ThemeName = 'light' | 'dark';\n\nexport interface ThemeState {\n  currentTheme: Theme;\n  availableT... [truncated for AI, original length: 2273]",
+    "agent": "backend-dev",
+    "generatedAt": 1784271003432
+  },
+  {
+    "path": "modules/theme/presentation/ThemeButton.tsx",
+    "content": "'use client';\n\nimport { useState, useEffect } from 'react';\nimport { ThemeService } from '../application/ThemeService';\n\ninterface ThemeButtonProps {\n... [truncated for AI, original length: 2693]",
+    "agent": "frontend-dev",
+    "generatedAt": 1784271019816
+  }
+]

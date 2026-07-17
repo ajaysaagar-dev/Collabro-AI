@@ -61,6 +61,8 @@ function StatusBadge({ status }: { status: ProjectState["status"] }) {
     running: "bg-neon-indigo/15 text-neon-indigo border-neon-indigo/30",
     completed: "bg-neon-emerald/15 text-neon-emerald border-neon-emerald/30",
     failed: "bg-neon-rose/15 text-neon-rose border-neon-rose/30",
+    partial_success: "bg-neon-emerald/15 text-teal-400 border-teal-500/30",
+    stalled: "bg-neon-rose/15 text-orange-400 border-orange-500/30",
   };
 
   return (
@@ -445,7 +447,7 @@ export default function ProjectPage({
 
         <div className="flex items-center gap-4">
           {/* Download button when completed */}
-          {projectStatus === "completed" && (
+          {(projectStatus === "completed" || projectStatus === "partial_success" || projectStatus === "stalled") && (
             <a
               href={`/api/project/${id}/download`}
               className="px-3 py-1 bg-gradient-to-r from-neon-indigo to-neon-violet hover:opacity-90 text-white font-mono text-xs font-semibold rounded-md flex items-center gap-1.5 transition-all shadow-[0_0_15px_rgba(129,140,248,0.2)] animate-fade-in"
