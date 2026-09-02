@@ -1,135 +1,60 @@
-# Collabro-AI
+﻿<div align="center">
 
-An **extremely advanced autonomous software engineering platform** — a closed-loop **generate → run → observe → repair** system.
+# 🤖 Collabro-AI
 
-## Architecture
+**An Advanced Multi-Agent Orchestration & Collaborative Intelligence Framework.**
 
-```
-               ┌─────────────────────────────┐
-               │        Next.js Dashboard      │
-               │   (app/, components/)         │
-               │  live pipeline view via SSE    │
-               └──────────────┬────────────────┘
-                              │
-               ┌──────────────▼────────────────┐
-               │         ORCHESTRATOR           │
-               │   (state machine + budgets)     │
-               └───┬─────┬─────┬─────┬─────┬────┘
-                   │     │     │     │     │
-       ┌───────────▼┐ ┌─▼───┐ ┌▼────┐ ┌▼────┐ ┌▼──────┐
-       │  Planner   │ │Coder│ │Rev.  │ │Test │ │Repair │
-       │  Agent     │ │Agent│ │Agent │ │Agent │ │Agent  │
-       └───────────┘ └─────┘ └──────┘ └──────┘ └───────┘
-                              │
-               ┌──────────────▼────────────────┐
-               │            MODEL ROUTER        │
-               │  OpenAI / Anthropic / Ollama   │
-               │  per-agent complexity routing  │
-               └──────────────┬────────────────┘
-                              │
-               ┌──────────────▼────────────────┐
-               │          MEMORY LAYER          │
-               │  Working (in-process/Redis)     │
-               │  Episodic (Postgres)            │
-               │  Semantic (pgvector/Qdrant)     │
-               └──────────────┬────────────────┘
-                              │
-               ┌──────────────▼────────────────┐
-               │     EXECUTION SANDBOX          │
-               │  Docker · Selenium+Playwright  │
-               └───────────────────────────────┘
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Framework: Next.js](https://img.shields.io/badge/Framework-Next.js%2015-black.svg?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Agents: Autonomous](https://img.shields.io/badge/Architecture-Multi--Agent-orange.svg)](orchestrator/)
+
+</div>
+
+---
+
+## 📖 Overview
+
+**Collabro-AI** is a modular agent orchestration platform designed to enable seamless collaboration between specialized AI agents, persistent memory stores, evaluation loops, and tool execution runtimes.
+
+---
+
+## 🏛️ Core Architecture
+
+```text
+Collabro-AI/
+├── agents/         # Specialized autonomous agent definitions & role configurations
+├── orchestrator/   # Multi-agent dispatch, workflow routing & message bus
+├── memory/         # Context vector storage, short-term and long-term memory
+├── models/         # Multi-model LLM abstraction adapters
+├── eval/           # Agent benchmark harness and response evaluation metrics
+├── workspace/      # Isolated execution sandboxes and file environments
+└── app/            # Next.js web console and interaction visualizer
 ```
 
-## Key Principles
+---
 
-1. **Bounded loops** — typed state machine (`orchestrator/stateMachine.ts`) with configurable hard limits via `orchestrator/budgets.ts`
-2. **Typed, validated agent contracts** — all 6 agents use Zod schemas (`types/agents.ts`)
-3. **Safe isolated execution** — `core/sandbox/` with Docker-based per-run isolation
-4. **Self-improving memory** — semantic memory compounds over runs (error→fix embeddings)
-5. **Measurable quality** — eval harness (`eval/`) tracks pass rate in CI
-
-## Getting Started
+## 🚀 Quick Start
 
 ```bash
-# Install dependencies
+# 1. Install dependencies
 npm install
 
-# Copy and configure environment
+# 2. Configure environment variables
 cp .env.example .env.local
-# Edit .env.local with your OPENAI_API_KEY
 
-# Run the dashboard
+# 3. Launch the development workspace
 npm run dev
-
-# Type-check
-npm run typecheck
-
-# Run eval harness
-npm run eval:smoke
 ```
 
-## Project Structure
+---
 
-```
-collabro-ai/
-├── app/                      # Next.js dashboard UI
-├── agents/
-│   ├── planner/              # Planner Agent + Zod schema
-│   ├── coder/                # Coder Agent + schema
-│   ├── reviewer/             # Reviewer Agent (security gate) + schema
-│   ├── tester/               # Testing Agent (Selenium/Playwright) + schema
-│   ├── repair/               # Repair Agent + schema
-│   └── deploy/               # Deployment Agent + schema
-├── orchestrator/
-│   ├── stateMachine.ts       # Typed state machine (IDLE→SUCCEEDED|FAILED)
-│   ├── budgets.ts            # Guard config (MAX_REPAIR_LOOPS, etc.)
-│   ├── events.ts             # SSE event emitter for dashboard
-│   ├── ocollabro.ts          # Main orchestration engine
-│   └── validation.ts         # 30-stage validation pipeline
-├── core/
-│   ├── sandbox/              # SandboxProvider interface + Docker/Mock impls
-│   └── repair/               # Low-level self-healing (12 files)
-├── memory/
-│   ├── working/              # In-process/Redis working memory
-│   ├── episodic/             # Postgres schema + data access layer
-│   └── semantic/             # pgvector embedding + similarity search
-├── models/
-│   ├── router.ts             # Per-agent complexity-based model routing
-│   └── providers/            # OpenAI, Anthropic, Ollama adapters
-├── templates/
-│   ├── nextjs-app-router/    # manifest.json
-│   └── vite-react/           # manifest.json
-├── types/
-│   └── agents.ts             # All 6 agent Zod schemas
-├── eval/
-│   ├── benchmarks/           # Fixed benchmark request set
-│   └── runEval.ts            # Eval runner (CI pass-rate tracking)
-└── .env.example
-```
+## 🤝 Contributing
 
-## Orchestrator State Machine
+Contributions are welcome! Please review [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-```
-IDLE → PLANNING → GENERATING → STATIC_REVIEW → PROVISIONING → STARTING
-                                     ↓                              ↓
-                                FAILED_FATAL                    TESTING
-                                                                    ↓
-                                                             CLASSIFYING → REPAIRING → RETESTING
-                                                                                          ↓
-                                                                                    (loop until budget)
-                                                                                          ↓
-                                                                               SUCCEEDED | FAILED_BUDGET
-```
+---
 
-Guards: `MAX_REPAIR_LOOPS=5`, `MAX_WALL_CLOCK_MINUTES=15`, `MAX_SANDBOX_RESTARTS=2`
+## 📄 License
 
-## Scripts
-
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start Next.js dashboard |
-| `npm run build` | Production build |
-| `npm run typecheck` | TypeScript type checking |
-| `npm run lint` | ESLint |
-| `npm run eval:smoke` | Run smoke eval suite |
-| `npm run eval:all` | Run full eval suite |
+Licensed under the [MIT License](LICENSE).
